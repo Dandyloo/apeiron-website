@@ -3,227 +3,192 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Apeiron Digital Marketing Portfolio — explore our work in branding, social media, web design, content creation, and digital PR." />
-    <meta name="keywords" content="apeiron portfolio, digital marketing work, branding Ghana, social media campaigns, web design" />
-    <meta name="author" content="Apeiron Digital Marketing" />
-
     <title>Portfolio — Apeiron Digital Marketing</title>
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <!-- Styles -->
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════
-     NAVBAR
-═══════════════════════════════════════ -->
 <nav class="navbar" id="navbar">
     <div class="nav-inner">
         <a href="../index.html" class="nav-logo">
             <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/logo_mid3ok.jpg" alt="Apeiron" class="nav-logo-img" />
-            <div class="nav-logo-text">
-                <span class="nav-logo-name">APEIRON</span>
-                <span class="nav-logo-sub">Digital Marketing</span>
-            </div>
+            <div class="nav-logo-text"><span class="nav-logo-name">APEIRON</span><span class="nav-logo-sub">Digital Marketing</span></div>
         </a>
-
         <ul class="nav-links" id="navLinks">
             <li><a href="../index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About</a></li>
             <li><a href="services.html" class="nav-link">Services</a></li>
             <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="portfolio.html" class="nav-link is-active">Portfolio</a></li>
             <li class="nav-mobile-cta"><a href="contact.html" class="btn btn--gold">Contact Us</a></li>
         </ul>
-
         <a href="contact.html" class="btn btn--gold nav-cta-desktop">Contact</a>
-
-        <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
 </nav>
 
+<section class="port-hero">
+    <div class="port-hero-inner">
+        <div class="port-hero-meta">
+            <span class="port-hero-label">Selected Work</span>
+            <span class="port-hero-count">09 Projects</span>
+        </div>
+        <h1 class="port-hero-title">Projects<br /><em>We're Proud Of</em></h1>
+        <p class="port-hero-sub">A curated showcase of campaigns, brands, and digital experiences built for our clients.</p>
+    </div>
+    <div class="port-hero-rule"></div>
+</section>
 
-<!-- ═══════════════════════════════════════
-     PAGE HERO
-═══════════════════════════════════════ -->
-<section class="page-hero">
-    <div class="page-hero-inner">
-        <span class="page-hero-label">Our Work</span>
-        <h1 class="page-hero-title">Projects We're<br /><em>Proud Of</em></h1>
-        <p class="page-hero-sub">A curated showcase of campaigns, brands, and digital experiences we've built for our clients.</p>
+<div class="port-filter-wrap">
+    <div class="container">
+        <div class="filter-bar" role="tablist">
+            <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All Work</button>
+            <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+            <button class="filter-btn" data-filter="social-media" role="tab" aria-selected="false">Social Media</button>
+            <button class="filter-btn" data-filter="web-design" role="tab" aria-selected="false">Web Design</button>
+            <button class="filter-btn" data-filter="content" role="tab" aria-selected="false">Content</button>
+            <button class="filter-btn" data-filter="digital-pr" role="tab" aria-selected="false">Digital PR</button>
+        </div>
+    </div>
+</div>
+
+<section class="port-grid-section">
+    <div class="container">
+        <div class="port-grid" id="portfolioGrid">
+
+            <a href="/pages/_projects/project-nibbles.html" class="port-card scroll-reveal" data-category="branding">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg" alt="Nibbles N Bites" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">01</span><span class="port-card-cat">Branding</span></div>
+                    <h2 class="port-card-title">Nibbles N Bites</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" style="--delay:0.08s" data-category="branding">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="EcoGreen Rebranding" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">02</span><span class="port-card-cat">Branding</span></div>
+                    <h2 class="port-card-title">EcoGreen Rebranding</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" style="--delay:0.16s" data-category="social-media">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="StyleHub Campaign" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">03</span><span class="port-card-cat">Social Media</span></div>
+                    <h2 class="port-card-title">StyleHub Campaign</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" data-category="web-design">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="TechVision Redesign" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">04</span><span class="port-card-cat">Web Design</span></div>
+                    <h2 class="port-card-title">TechVision Redesign</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" style="--delay:0.08s" data-category="content">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Zara Foods Launch" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">05</span><span class="port-card-cat">Content Creation</span></div>
+                    <h2 class="port-card-title">Zara Foods Launch</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" style="--delay:0.16s" data-category="digital-pr">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="NovaPay Digital PR" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">06</span><span class="port-card-cat">Digital PR</span></div>
+                    <h2 class="port-card-title">NovaPay Digital PR</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" data-category="branding">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="GreenLeaf Identity" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">07</span><span class="port-card-cat">Branding</span></div>
+                    <h2 class="port-card-title">GreenLeaf Identity</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" style="--delay:0.08s" data-category="social-media">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="BeautyBox Social" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">08</span><span class="port-card-cat">Social Media</span></div>
+                    <h2 class="port-card-title">BeautyBox Social</h2>
+                </div>
+            </a>
+
+            <a href="#" class="port-card scroll-reveal" style="--delay:0.16s" data-category="content">
+                <div class="port-card-img-wrap">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Sunrise Content Campaign" class="port-card-img" />
+                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
+                </div>
+                <div class="port-card-info">
+                    <div class="port-card-meta"><span class="port-card-num">09</span><span class="port-card-cat">Content Creation</span></div>
+                    <h2 class="port-card-title">Sunrise Content Campaign</h2>
+                </div>
+            </a>
+
+            <div class="portfolio-empty" id="portfolioEmpty">
+                <i class="fas fa-folder-open"></i>
+                <p>No projects in this category yet. Check back soon!</p>
+            </div>
+
+        </div>
     </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     TRUSTED BRANDS
-═══════════════════════════════════════ -->
-<section class="trusted-section">
+<section class="port-clients">
     <div class="container">
-        <div class="section-head">
-            <span class="section-label">Trusted By</span>
-            <h2 class="section-title">Brands We've Worked With</h2>
-            <p class="section-sub">From startups to established businesses — we're proud of every partnership.</p>
-        </div>
-
+        <p class="port-clients-label">Brands we've worked with</p>
         <div class="brands-text-grid">
-            <span class="brand-text-item scroll-reveal">EcoGreen</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.05s">StyleHub</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.1s">TechVision</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.15s">NovaPay</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.2s">Zara Foods</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.25s">GreenLeaf</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.3s">BeautyBox</span>
-            <span class="brand-text-item scroll-reveal" style="--delay:0.35s">Kora</span>
+            <span class="brand-text-item scroll-reveal">Nibbles N Bites</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.05s">EcoGreen</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.1s">StyleHub</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.15s">TechVision</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.2s">NovaPay</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.25s">Zara Foods</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.3s">GreenLeaf</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.35s">BeautyBox</span>
             <span class="brand-text-item scroll-reveal" style="--delay:0.4s">Sunrise</span>
         </div>
     </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     PORTFOLIO GRID
-═══════════════════════════════════════ -->
-<section class="portfolio-full-section">
-    <div class="container">
-        <div class="section-head">
-            <span class="section-label">Case Studies</span>
-            <h2 class="section-title">All Projects</h2>
-            <p class="section-sub">Filter by category to explore the work most relevant to you.</p>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
-            <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
-            <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
-            <button class="filter-btn" data-filter="social-media" role="tab" aria-selected="false">Social Media</button>
-            <button class="filter-btn" data-filter="web-design" role="tab" aria-selected="false">Web Design</button>
-            <button class="filter-btn" data-filter="content" role="tab" aria-selected="false">Content Creation</button>
-            <button class="filter-btn" data-filter="digital-pr" role="tab" aria-selected="false">Digital PR</button>
-        </div>
-
-        <!-- Grid -->
-        <div class="portfolio-full-grid" id="portfolioGrid">
-
-            <!-- 1. EcoGreen -->
-            <div class="portfolio-full-card scroll-reveal" data-category="branding">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="EcoGreen Rebranding" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Branding</span>
-                    <h3 class="portfolio-full-card-title">EcoGreen Rebranding</h3>
-                    <p class="portfolio-full-card-desc">A full brand identity overhaul — new logo, colour palette, and brand guidelines for a sustainable products company.</p>
-                </div>
-            </div>
-
-            <!-- 2. StyleHub -->
-            <div class="portfolio-full-card scroll-reveal" style="--delay:0.1s" data-category="social-media">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="StyleHub Social Campaign" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Social Media</span>
-                    <h3 class="portfolio-full-card-title">StyleHub Campaign</h3>
-                    <p class="portfolio-full-card-desc">A 3-month Instagram and TikTok campaign that grew StyleHub's following by 180% and drove a 40% spike in online sales.</p>
-                </div>
-            </div>
-
-            <!-- 3. TechVision -->
-            <div class="portfolio-full-card scroll-reveal" style="--delay:0.2s" data-category="web-design">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="TechVision Website Redesign" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Web Design</span>
-                    <h3 class="portfolio-full-card-title">TechVision Redesign</h3>
-                    <p class="portfolio-full-card-desc">A modern, responsive website redesign that cut bounce rate by 35% and doubled lead conversions within 60 days of launch.</p>
-                </div>
-            </div>
-
-            <!-- 4. Zara Foods -->
-            <div class="portfolio-full-card scroll-reveal" data-category="content">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Zara Foods Content Campaign" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Content Creation</span>
-                    <h3 class="portfolio-full-card-title">Zara Foods Launch</h3>
-                    <p class="portfolio-full-card-desc">Full launch content package — photography, video reels, and written copy — for a new Ghanaian food brand entering the market.</p>
-                </div>
-            </div>
-
-            <!-- 5. NovaPay -->
-            <div class="portfolio-full-card scroll-reveal" style="--delay:0.1s" data-category="digital-pr">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="NovaPay Digital PR" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Digital PR</span>
-                    <h3 class="portfolio-full-card-title">NovaPay Digital PR</h3>
-                    <p class="portfolio-full-card-desc">A targeted PR campaign that secured 12 media placements and positioned NovaPay as a leading fintech voice in West Africa.</p>
-                </div>
-            </div>
-
-            <!-- 6. GreenLeaf -->
-            <div class="portfolio-full-card scroll-reveal" style="--delay:0.2s" data-category="branding">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="GreenLeaf Branding" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Branding</span>
-                    <h3 class="portfolio-full-card-title">GreenLeaf Identity</h3>
-                    <p class="portfolio-full-card-desc">Brand identity design for an organic wellness brand — including logo, packaging design, and a full visual language system.</p>
-                </div>
-            </div>
-
-            <!-- 7. BeautyBox -->
-            <div class="portfolio-full-card scroll-reveal" data-category="social-media">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="BeautyBox Social Media" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Social Media</span>
-                    <h3 class="portfolio-full-card-title">BeautyBox Social</h3>
-                    <p class="portfolio-full-card-desc">Ongoing social media management for a beauty brand — strategy, content calendar, and community management across 4 platforms.</p>
-                </div>
-            </div>
-
-            <!-- 8. Kora -->
-            <div class="portfolio-full-card scroll-reveal" style="--delay:0.1s" data-category="web-design">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="Kora Web Redesign" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Web Design</span>
-                    <h3 class="portfolio-full-card-title">Kora Web Redesign</h3>
-                    <p class="portfolio-full-card-desc">A clean, fast e-commerce website built for a local artisan brand — mobile-first design with an integrated product catalogue.</p>
-                </div>
-            </div>
-
-            <!-- 9. Sunrise -->
-            <div class="portfolio-full-card scroll-reveal" style="--delay:0.2s" data-category="content">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Sunrise Content Campaign" class="portfolio-full-card-img" />
-                <div class="portfolio-full-card-overlay">
-                    <span class="portfolio-full-card-cat">Content Creation</span>
-                    <h3 class="portfolio-full-card-title">Sunrise Content Campaign</h3>
-                    <p class="portfolio-full-card-desc">A monthly content retainer covering blog articles, social captions, and email newsletters that tripled organic engagement.</p>
-                </div>
-            </div>
-
-            <!-- Empty state -->
-            <div class="portfolio-empty" id="portfolioEmpty">
-                <i class="fas fa-folder-open"></i>
-                <p>No projects found in this category yet. Check back soon!</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     CTA BAND
-═══════════════════════════════════════ -->
 <section class="cta-band">
     <div class="cta-band-inner">
         <div class="cta-band-text scroll-reveal">
             <h2 class="cta-band-title">Like What You See?</h2>
-            <p class="cta-band-sub">Let's create something just as impactful for your brand. We'd love to hear about your project.</p>
+            <p class="cta-band-sub">Let's create something just as impactful for your brand.</p>
         </div>
         <div class="cta-band-actions scroll-reveal" style="--delay:0.15s">
             <a href="contact.html" class="btn btn--gold btn--lg">Start a Project</a>
@@ -232,25 +197,15 @@
     </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════ -->
 <footer class="footer">
     <div class="footer-top">
         <div class="container footer-top-inner">
-
             <div class="footer-col footer-col--brand">
                 <div class="footer-logo">
                     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/logo_mid3ok.jpg" alt="Apeiron" class="footer-logo-img" />
-                    <div>
-                        <span class="footer-logo-name">APEIRON</span>
-                        <span class="footer-logo-sub">Digital Marketing</span>
-                    </div>
+                    <div><span class="footer-logo-name">APEIRON</span><span class="footer-logo-sub">Digital Marketing</span></div>
                 </div>
-                <p class="footer-blurb">
-                    Creative digital agency based in Ghana — delivering innovative solutions that drive growth and visibility.
-                </p>
+                <p class="footer-blurb">Creative digital agency based in Ghana — delivering innovative solutions that drive growth and visibility.</p>
                 <div class="footer-socials">
                     <a href="https://www.facebook.com/profile.php?id=61569152649175" target="_blank" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -258,19 +213,14 @@
                     <a href="https://www.tiktok.com/@apeiron.digital" target="_blank" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-
             <div class="footer-col">
                 <h4 class="footer-col-title">Quick Links</h4>
                 <ul class="footer-list">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="../index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4 class="footer-col-title">Services</h4>
                 <ul class="footer-list">
@@ -281,7 +231,6 @@
                     <li><a href="services.html#web-design">Web Design</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4 class="footer-col-title">Contact</h4>
                 <ul class="footer-contact-list">
@@ -291,52 +240,37 @@
                     <li><i class="fas fa-clock"></i> Mon–Fri, 9AM–6PM</li>
                 </ul>
             </div>
-
         </div>
     </div>
-
     <div class="footer-bottom">
         <div class="container footer-bottom-inner">
             <p>&copy; 2025 Apeiron Digital Marketing. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <span>|</span>
-                <a href="terms.html">Terms of Service</a>
-            </div>
+            <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><span>|</span><a href="terms.html">Terms of Service</a></div>
         </div>
     </div>
 </footer>
 
 <script src="../js/main.js"></script>
 <script>
-    /* ── Portfolio Filter ───────────────────────── */
-    (function () {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards      = document.querySelectorAll('.portfolio-full-card[data-category]');
-        const emptyState = document.getElementById('portfolioEmpty');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('is-active');
-                    b.setAttribute('aria-selected', 'false');
-                });
-                btn.classList.add('is-active');
-                btn.setAttribute('aria-selected', 'true');
-
-                const filter = btn.dataset.filter;
-                let visibleCount = 0;
-
-                cards.forEach(card => {
-                    const match = filter === 'all' || card.dataset.category === filter;
-                    card.classList.toggle('is-hidden', !match);
-                    if (match) visibleCount++;
-                });
-
-                emptyState.classList.toggle('is-visible', visibleCount === 0);
+(function () {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.port-card[data-category]');
+    const emptyState = document.getElementById('portfolioEmpty');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+            btn.classList.add('is-active'); btn.setAttribute('aria-selected','true');
+            const filter = btn.dataset.filter;
+            let visible = 0;
+            cards.forEach(card => {
+                const match = filter === 'all' || card.dataset.category === filter;
+                card.classList.toggle('is-hidden', !match);
+                if (match) visible++;
             });
+            emptyState.classList.toggle('is-visible', visible === 0);
         });
-    })();
+    });
+})();
 </script>
 </body>
 </html>
