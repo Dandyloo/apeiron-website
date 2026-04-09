@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Apeiron Digital Marketing Portfolio — explore our work in branding, social media, web design, content creation, and digital PR." />
+    <meta name="keywords" content="apeiron portfolio, digital marketing work, branding Ghana, social media campaigns, web design" />
+    <meta name="author" content="Apeiron Digital Marketing" />
+
+    <title>Portfolio — Apeiron Digital Marketing</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+        /* ── Filter Tabs ───────────────────────────── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            justify-content: center;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .filter-btn {
+            font-family: var(--font-body);
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            padding: .55rem 1.4rem;
+            border-radius: 50px;
+            border: 2px solid var(--cream-mid);
+            background: var(--white);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .filter-btn.is-active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        /* ── Portfolio grid item hide/show ─────────── */
+        .portfolio-full-card {
+            transition: opacity .35s var(--ease), transform .35s var(--ease), var(--transition);
+        }
+        .portfolio-full-card.is-hidden {
+            display: none;
+        }
+
+        /* ── Trusted Brands (text version) ─────────── */
+        .brands-text-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        .brand-text-item {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+            font-weight: 600;
+            color: var(--navy);
+            opacity: .35;
+            letter-spacing: .04em;
+            transition: opacity .3s var(--ease), color .3s var(--ease);
+            cursor: default;
+            padding: .5rem 1rem;
+            position: relative;
+        }
+        .brand-text-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width .3s var(--ease);
+        }
+        .brand-text-item:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+        .brand-text-item:hover::after {
+            width: 60%;
+        }
+
+        /* ── Empty state ────────────────────────────── */
+        .portfolio-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            display: none;
+        }
+        .portfolio-empty.is-visible {
+            display: block;
+        }
+        .portfolio-empty i {
+            font-size: 2.5rem;
+            color: var(--cream-mid);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .portfolio-empty p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+            <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/logo_mid3ok.jpg" alt="Apeiron" class="nav-logo-img" />
+            <div class="nav-logo-text">
+                <span class="nav-logo-name">APEIRON</span>
+                <span class="nav-logo-sub">Digital Marketing</span>
+            </div>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li class="nav-mobile-cta"><a href="contact.html" class="btn btn--gold">Contact Us</a></li>
+        </ul>
+
+        <a href="contact.html" class="btn btn--gold nav-cta-desktop">Contact</a>
+
+        <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════ -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <span class="page-hero-label">Our Work</span>
+        <h1 class="page-hero-title">Projects We're<br /><em>Proud Of</em></h1>
+        <p class="page-hero-sub">A curated showcase of campaigns, brands, and digital experiences we've built for our clients.</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     TRUSTED BRANDS
+═══════════════════════════════════════ -->
+<section class="trusted-section">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-label">Trusted By</span>
+            <h2 class="section-title">Brands We've Worked With</h2>
+            <p class="section-sub">From startups to established businesses — we're proud of every partnership.</p>
+        </div>
+
+        <div class="brands-text-grid">
+            <span class="brand-text-item scroll-reveal">EcoGreen</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.05s">StyleHub</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.1s">TechVision</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.15s">NovaPay</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.2s">Zara Foods</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.25s">GreenLeaf</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.3s">BeautyBox</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.35s">Kora</span>
+            <span class="brand-text-item scroll-reveal" style="--delay:0.4s">Sunrise</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PORTFOLIO GRID
+═══════════════════════════════════════ -->
+<section class="portfolio-full-section">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-label">Case Studies</span>
+            <h2 class="section-title">All Projects</h2>
+            <p class="section-sub">Filter by category to explore the work most relevant to you.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
+            <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+            <button class="filter-btn" data-filter="social-media" role="tab" aria-selected="false">Social Media</button>
+            <button class="filter-btn" data-filter="web-design" role="tab" aria-selected="false">Web Design</button>
+            <button class="filter-btn" data-filter="content" role="tab" aria-selected="false">Content Creation</button>
+            <button class="filter-btn" data-filter="digital-pr" role="tab" aria-selected="false">Digital PR</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="portfolio-full-grid" id="portfolioGrid">
+
+            <!-- 1. EcoGreen -->
+            <div class="portfolio-full-card scroll-reveal" data-category="branding">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="EcoGreen Rebranding" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Branding</span>
+                    <h3 class="portfolio-full-card-title">EcoGreen Rebranding</h3>
+                    <p class="portfolio-full-card-desc">A full brand identity overhaul — new logo, colour palette, and brand guidelines for a sustainable products company.</p>
+                </div>
+            </div>
+
+            <!-- 2. StyleHub -->
+            <div class="portfolio-full-card scroll-reveal" style="--delay:0.1s" data-category="social-media">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="StyleHub Social Campaign" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Social Media</span>
+                    <h3 class="portfolio-full-card-title">StyleHub Campaign</h3>
+                    <p class="portfolio-full-card-desc">A 3-month Instagram and TikTok campaign that grew StyleHub's following by 180% and drove a 40% spike in online sales.</p>
+                </div>
+            </div>
+
+            <!-- 3. TechVision -->
+            <div class="portfolio-full-card scroll-reveal" style="--delay:0.2s" data-category="web-design">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="TechVision Website Redesign" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Web Design</span>
+                    <h3 class="portfolio-full-card-title">TechVision Redesign</h3>
+                    <p class="portfolio-full-card-desc">A modern, responsive website redesign that cut bounce rate by 35% and doubled lead conversions within 60 days of launch.</p>
+                </div>
+            </div>
+
+            <!-- 4. Zara Foods -->
+            <div class="portfolio-full-card scroll-reveal" data-category="content">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Zara Foods Content Campaign" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Content Creation</span>
+                    <h3 class="portfolio-full-card-title">Zara Foods Launch</h3>
+                    <p class="portfolio-full-card-desc">Full launch content package — photography, video reels, and written copy — for a new Ghanaian food brand entering the market.</p>
+                </div>
+            </div>
+
+            <!-- 5. NovaPay -->
+            <div class="portfolio-full-card scroll-reveal" style="--delay:0.1s" data-category="digital-pr">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="NovaPay Digital PR" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Digital PR</span>
+                    <h3 class="portfolio-full-card-title">NovaPay Digital PR</h3>
+                    <p class="portfolio-full-card-desc">A targeted PR campaign that secured 12 media placements and positioned NovaPay as a leading fintech voice in West Africa.</p>
+                </div>
+            </div>
+
+            <!-- 6. GreenLeaf -->
+            <div class="portfolio-full-card scroll-reveal" style="--delay:0.2s" data-category="branding">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="GreenLeaf Branding" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Branding</span>
+                    <h3 class="portfolio-full-card-title">GreenLeaf Identity</h3>
+                    <p class="portfolio-full-card-desc">Brand identity design for an organic wellness brand — including logo, packaging design, and a full visual language system.</p>
+                </div>
+            </div>
+
+            <!-- 7. BeautyBox -->
+            <div class="portfolio-full-card scroll-reveal" data-category="social-media">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="BeautyBox Social Media" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Social Media</span>
+                    <h3 class="portfolio-full-card-title">BeautyBox Social</h3>
+                    <p class="portfolio-full-card-desc">Ongoing social media management for a beauty brand — strategy, content calendar, and community management across 4 platforms.</p>
+                </div>
+            </div>
+
+            <!-- 8. Kora -->
+            <div class="portfolio-full-card scroll-reveal" style="--delay:0.1s" data-category="web-design">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="Kora Web Redesign" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Web Design</span>
+                    <h3 class="portfolio-full-card-title">Kora Web Redesign</h3>
+                    <p class="portfolio-full-card-desc">A clean, fast e-commerce website built for a local artisan brand — mobile-first design with an integrated product catalogue.</p>
+                </div>
+            </div>
+
+            <!-- 9. Sunrise -->
+            <div class="portfolio-full-card scroll-reveal" style="--delay:0.2s" data-category="content">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Sunrise Content Campaign" class="portfolio-full-card-img" />
+                <div class="portfolio-full-card-overlay">
+                    <span class="portfolio-full-card-cat">Content Creation</span>
+                    <h3 class="portfolio-full-card-title">Sunrise Content Campaign</h3>
+                    <p class="portfolio-full-card-desc">A monthly content retainer covering blog articles, social captions, and email newsletters that tripled organic engagement.</p>
+                </div>
+            </div>
+
+            <!-- Empty state -->
+            <div class="portfolio-empty" id="portfolioEmpty">
+                <i class="fas fa-folder-open"></i>
+                <p>No projects found in this category yet. Check back soon!</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CTA BAND
+═══════════════════════════════════════ -->
+<section class="cta-band">
+    <div class="cta-band-inner">
+        <div class="cta-band-text scroll-reveal">
+            <h2 class="cta-band-title">Like What You See?</h2>
+            <p class="cta-band-sub">Let's create something just as impactful for your brand. We'd love to hear about your project.</p>
+        </div>
+        <div class="cta-band-actions scroll-reveal" style="--delay:0.15s">
+            <a href="contact.html" class="btn btn--gold btn--lg">Start a Project</a>
+            <a href="services.html" class="btn btn--ghost btn--lg">Explore Services</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container footer-top-inner">
+
+            <div class="footer-col footer-col--brand">
+                <div class="footer-logo">
+                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/logo_mid3ok.jpg" alt="Apeiron" class="footer-logo-img" />
+                    <div>
+                        <span class="footer-logo-name">APEIRON</span>
+                        <span class="footer-logo-sub">Digital Marketing</span>
+                    </div>
+                </div>
+                <p class="footer-blurb">
+                    Creative digital agency based in Ghana — delivering innovative solutions that drive growth and visibility.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/profile.php?id=61569152649175" target="_blank" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@apeiron.digital" target="_blank" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">Services</h4>
+                <ul class="footer-list">
+                    <li><a href="services.html#social-media">Social Media</a></li>
+                    <li><a href="services.html#content">Content Creation</a></li>
+                    <li><a href="services.html#digital-pr">Digital PR</a></li>
+                    <li><a href="services.html#branding">Branding</a></li>
+                    <li><a href="services.html#web-design">Web Design</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">Contact</h4>
+                <ul class="footer-contact-list">
+                    <li><i class="fas fa-map-marker-alt"></i> Cape Coast, Ghana</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+233559489462">+233 559 489 462</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@apeironhub.com">info@apeironhub.com</a></li>
+                    <li><i class="fas fa-clock"></i> Mon–Fri, 9AM–6PM</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <p>&copy; 2025 Apeiron Digital Marketing. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span>|</span>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+    /* ── Portfolio Filter ───────────────────────── */
+    (function () {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards      = document.querySelectorAll('.portfolio-full-card[data-category]');
+        const emptyState = document.getElementById('portfolioEmpty');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => {
+                    b.classList.remove('is-active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('is-active');
+                btn.setAttribute('aria-selected', 'true');
+
+                const filter = btn.dataset.filter;
+                let visibleCount = 0;
+
+                cards.forEach(card => {
+                    const match = filter === 'all' || card.dataset.category === filter;
+                    card.classList.toggle('is-hidden', !match);
+                    if (match) visibleCount++;
+                });
+
+                // Show empty state if no results
+                emptyState.classList.toggle('is-visible', visibleCount === 0);
+            });
+        });
+    })();
+</script>
+</body>
+</html>
