@@ -2237,3 +2237,109 @@ h1, h2, h3, h4, h5, h6 {
 
     .portfolio-tile-link { opacity: 1; transform: none; }
 }
+
+/* ───────────────────────────────────────────
+   23. PORTFOLIO PAGE — FILTER & BRANDS
+─────────────────────────────────────────── */
+
+/* Filter Tabs */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    justify-content: center;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.filter-btn {
+    font-family: var(--font-body);
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    padding: .55rem 1.4rem;
+    border-radius: 50px;
+    border: 2px solid var(--cream-mid);
+    background: var(--white);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+.filter-btn.is-active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+}
+
+/* Portfolio grid card hide/show */
+.portfolio-full-card {
+    transition: opacity .35s var(--ease), transform .35s var(--ease), var(--transition);
+}
+.portfolio-full-card.is-hidden {
+    display: none;
+}
+
+/* Trusted Brands — text version */
+.brands-text-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+.brand-text-item {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--navy);
+    opacity: .35;
+    letter-spacing: .04em;
+    transition: opacity .3s var(--ease), color .3s var(--ease);
+    cursor: default;
+    padding: .5rem 1rem;
+    position: relative;
+}
+.brand-text-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width .3s var(--ease);
+}
+.brand-text-item:hover {
+    opacity: 1;
+    color: var(--gold);
+}
+.brand-text-item:hover::after {
+    width: 60%;
+}
+
+/* Empty state */
+.portfolio-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    display: none;
+}
+.portfolio-empty.is-visible {
+    display: block;
+}
+.portfolio-empty i {
+    font-size: 2.5rem;
+    color: var(--cream-mid);
+    margin-bottom: 1rem;
+    display: block;
+}
+.portfolio-empty p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
