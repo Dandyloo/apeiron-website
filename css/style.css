@@ -76,12 +76,17 @@ body {
     min-height: 100vh;
 }
 
-/* FIX: All images are contained by default — prevents overflow on every page */
+/* FIX: All images preserve their actual dimensions by default
+   - max-width: 100% scales responsively
+   - height: auto maintains aspect ratio
+   - object-fit: contain prevents stretching/cropping
+   This applies to all images site-wide including new ones */
 img {
     display: block;
     max-width: 100%;
     height: auto;
-    /* Prevent layout shift before image loads */
+    object-fit: contain;
+    object-position: center;
     overflow: hidden;
 }
 
@@ -475,11 +480,11 @@ h1, h2, h3, h4, h5, h6 {
     overflow: visible;
 }
 
-/* FIX: explicit height + object-fit prevents hero image stretching */
+/* FIX: use auto dimensions and object-fit contain to preserve image aspect ratio */
 .hero-img {
     width: 100%;
-    height: clamp(340px, 55vw, 560px);
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center top;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
@@ -664,11 +669,11 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-/* FIX: explicit height + object-fit on about strip image */
+/* FIX: use auto dimensions and object-fit contain to preserve image aspect ratio */
 .about-strip-img {
     width: 100%;
-    height: clamp(360px, 50vw, 540px);
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
@@ -777,7 +782,6 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     border-radius: var(--radius-md);
     overflow: hidden;
-    aspect-ratio: 4/5;
     cursor: pointer;
     box-shadow: var(--shadow-md);
 }
@@ -1111,11 +1115,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: clamp(3rem, 6vw, 6rem);
     align-items: center;
 }
-/* FIX: explicit height + object-fit on story image */
+/* FIX: use auto dimensions and object-fit contain to preserve image aspect ratio */
 .story-img {
     width: 100%;
-    height: clamp(360px, 50vw, 500px);
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
@@ -1226,7 +1230,6 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     border-radius: var(--radius-md);
     overflow: hidden;
-    aspect-ratio: 4/5;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
@@ -1234,8 +1237,8 @@ h1, h2, h3, h4, h5, h6 {
 /* FIX: explicit width + height + object-fit on team card images */
 .team-card-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center top;
     transition: transform .6s var(--ease);
 }
@@ -1482,11 +1485,11 @@ h1, h2, h3, h4, h5, h6 {
 .service-row-inner.reverse > * { direction: ltr; }
 
 .service-detail-img-wrap { position: relative; }
-/* FIX: explicit height + object-fit on service detail images */
+/* FIX: use auto dimensions and object-fit contain to preserve image aspect ratio */
 .service-detail-img {
     width: 100%;
-    height: clamp(340px, 45vw, 480px);
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
@@ -1762,7 +1765,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 .portfolio-full-card {
-    height: clamp(260px, 32vw, 360px);
     border-radius: var(--radius-md);
     overflow: hidden;
     position: relative;
@@ -1784,8 +1786,8 @@ h1, h2, h3, h4, h5, h6 {
 /* FIX: explicit width/height/object-fit on portfolio full card images */
 .portfolio-full-card-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     transition: transform .7s var(--ease);
 }
@@ -2206,7 +2208,6 @@ h1, h2, h3, h4, h5, h6 {
     .hero-actions, .hero-trust { justify-content: center; }
     .hero-badge--tl { left: 0; top: .5rem; }
     .hero-badge--br { right: 0; }
-    .hero-img { height: clamp(260px, 65vw, 380px); }
     .hero-scroll-hint { display: none; }
 
     /* Services: single column on mobile */
