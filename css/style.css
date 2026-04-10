@@ -542,15 +542,17 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
+/*
+ * FIX: Services grid now uses flex with centered last row,
+ * replacing the fragile nth-child grid-column approach.
+ * Works correctly regardless of how many cards are added.
+ */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
 }
-
-/* 4th & 5th cards: center the bottom row */
-.services-grid .service-card:nth-child(4) { grid-column: 1 / 2; }
-.services-grid .service-card:nth-child(5) { grid-column: 3 / 4; }
 
 .service-card {
     background: var(--cream);
@@ -563,6 +565,10 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    /* Each card takes up ~1/3 of the row, accounting for gaps */
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 260px;
+    max-width: calc(33.333% - 1rem);
 }
 
 /* Gold top bar on hover */
@@ -1996,6 +2002,8 @@ h1, h2, h3, h4, h5, h6 {
 .map-section {
     padding-block: var(--space-xl);
     background: var(--cream);
+    /* FIX: prevent anchor link scrolling behind fixed navbar */
+    scroll-margin-top: calc(var(--nav-h) + 1rem);
 }
 .map-inner {
     display: grid;
@@ -2062,9 +2070,11 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-bg-shape { width: 48%; }
 
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .services-grid .service-card:nth-child(4),
-    .services-grid .service-card:nth-child(5) { grid-column: auto; }
+    /* Services flex: 2 cards per row on tablet */
+    .service-card {
+        flex: 1 1 calc(50% - .75rem);
+        max-width: calc(50% - .75rem);
+    }
 
     .about-strip-inner { gap: 3rem; }
 
@@ -2173,8 +2183,12 @@ h1, h2, h3, h4, h5, h6 {
     .hero-img { height: clamp(260px, 65vw, 380px); }
     .hero-scroll-hint { display: none; }
 
-    /* Sections */
-    .services-grid { grid-template-columns: 1fr; }
+    /* Services: single column on mobile */
+    .service-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
     .about-strip-inner { grid-template-columns: 1fr; }
     .about-strip-stat-bubble { bottom: -1rem; right: 0; }
     .portfolio-preview-grid { grid-template-columns: 1fr; }
