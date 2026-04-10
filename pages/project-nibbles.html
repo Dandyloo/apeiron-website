@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Nibbles N Bites — Brand Identity, Packaging Design, Merchandise & Social Media Graphics by Apeiron Digital Marketing." />
-    <!-- FIX: Added missing meta keywords -->
     <meta name="keywords" content="nibbles n bites branding, ghana frozen food packaging, brand identity design, apeiron portfolio" />
     <meta name="author" content="Apeiron Digital Marketing" />
     <title>Nibbles N Bites — Apeiron Portfolio</title>
@@ -17,11 +16,10 @@
 </head>
 <body class="project-page">
 
-<!-- NAVBAR -->
+<!-- navbar -->
 <nav class="navbar" id="navbar">
     <div class="nav-inner">
         <a href="../index.html" class="nav-logo">
-            <!-- FIX: explicit width/height on logo image prevent CLS -->
             <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/logo_mid3ok.jpg"
                  alt="Apeiron Digital Marketing logo"
                  class="nav-logo-img"
@@ -47,7 +45,7 @@
 </nav>
 
 
-<!-- PROJECT INTRO -->
+<!-- project intro -->
 <section class="proj-intro">
     <div class="proj-intro-inner">
 
@@ -81,7 +79,6 @@
 
 
 <!-- HERO IMAGE — full bleed -->
-<!-- FIX: .proj-hero-img now uses aspect-ratio + object-fit in CSS; width/height hint prevents CLS -->
 <div class="proj-hero-img">
     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg"
          alt="Nibbles N Bites brand hero — full identity showcase"
@@ -122,7 +119,6 @@
 
 
 <!-- IMAGE — packaging, full bleed -->
-<!-- FIX: width/height attributes hint prevents CLS; object-fit cover handled in CSS via aspect-ratio container -->
 <div class="proj-fullbleed">
     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774356/6_x04voa.jpg"
          alt="Nibbles N Bites frozen samosa packaging design — yellow and dark colourway"
@@ -146,8 +142,6 @@
 
 
 <!-- IMAGE PAIR — aprons side by side -->
-<!-- FIX: .proj-img-pair uses aspect-ratio:4/5 on both cells + object-fit:cover so mismatched source
-     aspect ratios still produce an aligned, undistorted pair -->
 <div class="proj-img-pair">
     <div class="proj-img-pair-item">
         <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774356/9_adfxib.jpg"
@@ -183,8 +177,6 @@
 
 
 <!-- IMAGE — social graphic, contained (portrait/square, should not be cropped) -->
-<!-- FIX: .proj-fullbleed--contained uses object-fit:contain + auto height so the graphic
-     is never cropped regardless of its aspect ratio -->
 <div class="proj-fullbleed proj-fullbleed--contained">
     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/0_n4tjzj.jpg"
          alt="Nibbles N Bites Instagram social media graphic — product post template"
@@ -195,9 +187,6 @@
 <!-- CLOSING NOTE -->
 <section class="proj-close">
     <div class="proj-body-inner">
-        <!-- FIX: Removed CSS ::before/::after quote characters from .proj-quote — they were
-             doubling up with the literal quotation marks written in the HTML text content.
-             The blockquote now has a gold left-border accent instead. -->
         <blockquote class="proj-quote">
             Great branding doesn't just look good — it makes people hungry.
         </blockquote>

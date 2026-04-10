@@ -1,18 +1,10 @@
-/**
- * APEIRON DIGITAL MARKETING — main.js
- * Single JS file for the entire site.
- * Each feature is self-contained and guards for missing elements.
- */
+// main.js — runs on every page
 
-/* ─────────────────────────────────────────
-   UTILITY: safe querySelector
-───────────────────────────────────────── */
+// utils
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-/* ─────────────────────────────────────────
-   1. NAVBAR — scroll morph + mobile toggle
-───────────────────────────────────────── */
+// navbar
 function initNavbar() {
     const navbar   = $('#navbar');
     const toggle   = $('#navToggle');
@@ -61,9 +53,7 @@ function initNavbar() {
     });
 }
 
-/* ─────────────────────────────────────────
-   2. SCROLL REVEAL — IntersectionObserver
-───────────────────────────────────────── */
+// scroll reveal
 function initScrollReveal() {
     const targets = $$('.scroll-reveal, .reveal-left, .reveal-right');
     if (!targets.length) return;
@@ -80,9 +70,7 @@ function initScrollReveal() {
     targets.forEach(el => io.observe(el));
 }
 
-/* ─────────────────────────────────────────
-   3. COUNTER ANIMATION — stats sections
-───────────────────────────────────────── */
+// counter animation
 function animateCount(el) {
     const raw    = el.textContent.trim();
     const suffix = raw.replace(/[\d.]/g, '');
@@ -120,9 +108,7 @@ function initCounters() {
     countEls.forEach(el => io.observe(el));
 }
 
-/* ─────────────────────────────────────────
-   4. TEAM PANEL — about page
-───────────────────────────────────────── */
+// team panel
 const teamData = {
     1: {
         name: 'Emmanuella Chinenye',
@@ -210,9 +196,7 @@ function initTeamPanel() {
     });
 }
 
-/* ─────────────────────────────────────────
-   5. VIDEO PLAY OVERLAYS — about page
-───────────────────────────────────────── */
+// videos
 function initVideos() {
     const videos = $$('.video-wrapper video');
     videos.forEach(video => {
@@ -231,9 +215,7 @@ function initVideos() {
     });
 }
 
-/* ─────────────────────────────────────────
-   6. FAQ ACCORDION — contact page
-───────────────────────────────────────── */
+// faq
 function initFAQ() {
     $$('.faq-item').forEach(item => {
         const btn = item.querySelector('.faq-q');
@@ -247,9 +229,7 @@ function initFAQ() {
     });
 }
 
-/* ─────────────────────────────────────────
-   7. CONTACT FORM — contact page
-───────────────────────────────────────── */
+// contact form
 function initContactForm() {
     const form = $('#contactForm');
     const msgEl = $('#formMessage');
@@ -301,16 +281,7 @@ function initContactForm() {
         if (msgEl) msgEl.style.display = 'none';
 
         try {
-            // ── Replace with your actual endpoint ──────────────────────
-            // const res = await fetch('YOUR_ENDPOINT', {
-            //   method: 'POST',
-            //   headers: { 'Content-Type': 'application/json' },
-            //   body: JSON.stringify(Object.fromEntries(new FormData(form))),
-            // });
-            // if (!res.ok) throw new Error('Server error');
-            // ───────────────────────────────────────────────────────────
-
-            // Simulated delay — remove when real endpoint is connected
+            // TODO: swap simulation below with real endpoint
             await new Promise(r => setTimeout(r, 1800));
 
             showMsg('✓ Message sent! We\'ll get back to you within 24 hours.', 'success');

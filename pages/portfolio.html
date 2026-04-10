@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- FIX: Added missing meta description and keywords -->
     <meta name="description" content="Apeiron Digital Marketing Portfolio — view our branding, social media, web design, content creation, and digital PR projects from clients across Ghana." />
     <meta name="keywords" content="apeiron portfolio, digital marketing portfolio ghana, branding projects, social media campaigns, web design" />
     <meta name="author" content="Apeiron Digital Marketing" />
@@ -19,7 +18,6 @@
 <nav class="navbar" id="navbar">
     <div class="nav-inner">
         <a href="../index.html" class="nav-logo">
-            <!-- FIX: explicit width/height on logo image prevent CLS -->
             <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/logo_mid3ok.jpg"
                  alt="Apeiron Digital Marketing logo"
                  class="nav-logo-img"
@@ -68,7 +66,7 @@
     <div class="container">
         <div class="port-grid" id="portfolioGrid">
 
-            <!-- Card 01: Nibbles N Bites — live link -->
+            <!-- Nibbles N Bites -->
             <a href="project-nibbles.html" class="port-card scroll-reveal" data-category="branding">
                 <div class="port-card-img-wrap">
                     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg"
@@ -146,7 +144,6 @@
             <!-- Card 06: NovaPay — live link -->
             <a href="project-novapay.html" class="port-card scroll-reveal" style="--delay:0.16s" data-category="digital-pr">
                 <div class="port-card-img-wrap">
-                    <!-- FIX: NovaPay had the same image as TechVision — placeholder note added in alt text -->
                     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
                          alt="NovaPay — digital PR campaign"
                          class="port-card-img"
@@ -159,10 +156,6 @@
                 </div>
             </a>
 
-            <!-- FIX: Cards 07–09 were href="#" which scrolled to top on click.
-                 Changed to <div> elements (non-links) and added visual "Coming Soon" indicator.
-                 CSS pointer-events:none is also applied via [href="#"] selector as a safety net,
-                 but using a div is the semantically correct solution. -->
             <div class="port-card scroll-reveal" data-category="branding" aria-label="GreenLeaf Identity — coming soon">
                 <div class="port-card-img-wrap">
                     <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg"
@@ -201,8 +194,6 @@
                     <h2 class="port-card-title">Sunrise Content Campaign</h2>
                 </div>
             </div>
-
-            <!-- FIX: empty state is hidden by default (display:none via CSS) and only shown by JS when filter returns 0 results -->
             <div class="portfolio-empty" id="portfolioEmpty" aria-live="polite">
                 <i class="fas fa-folder-open"></i>
                 <p>No projects in this category yet. Check back soon!</p>
