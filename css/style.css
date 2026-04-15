@@ -2703,9 +2703,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 1.5rem;
     border-left: 3px solid var(--gold);
 }
-.proj-close .proj-body-text p {
-    color: var(--white);
-}
 .proj-close-text {
     font-size: clamp(.95rem, 1.6vw, 1.05rem);
     color: rgba(255,255,255,.65);
@@ -2758,4 +2755,3 @@ h1, h2, h3, h4, h5, h6 {
     .proj-nav-back { border-right: none; border-bottom: 1px solid var(--cream-mid); }
     .proj-nav-cta  { text-align: left; align-items: flex-start; }
 }
-
