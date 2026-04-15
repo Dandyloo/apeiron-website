@@ -2692,6 +2692,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-block: clamp(3rem, 5vw, 4.5rem);
     background: var(--navy);
 }
+.proj-close .proj-body-text p {
+    color: var(--white);
+}
 .proj-close .proj-body-inner { max-width: 700px; }
 .proj-quote {
     font-family: var(--font-display);
