@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Rotund Bold';
+    src: url('../fonts/Rotund-Bold.ttf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MTN Sans';
+    src: url('../fonts/mtnbrightersans-regular.ttf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* --- vars --- */
 :root {
     /* Colours */
@@ -12,12 +27,12 @@
     --white:       #ffffff;
     --charcoal:    #222233;
     --text:        #2a2a3e;
-    --text-muted:  #6b6b80;
+    --text-muted:  #000000;
     --border:      rgba(201,168,76,.22);
 
     /* Typography */
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body:    'DM Sans', sans-serif;
+    --font-display: 'Rotund Bold', serif;
+    --font-body:    'MTN Sans', sans-serif;
 
     /* Spacing */
     --space-xs:  .5rem;
@@ -500,7 +515,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: .75rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--white);
     z-index: 1;
     transition: color .25s;
     animation: bounce 2.5s ease-in-out infinite;
@@ -731,7 +746,7 @@ h1, h2, h3, h4, h5, h6 {
 .portfolio-preview .section-label { color: var(--gold); }
 .portfolio-preview .section-title { color: var(--white); }
 .portfolio-preview .section-title::after { background: var(--gold); }
-.portfolio-preview .section-sub { color: rgba(255,255,255,.6); }
+.portfolio-preview .section-sub { color: rgb(255, 255, 255); }
 
 .portfolio-preview-grid {
     display: grid;
@@ -1144,6 +1159,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .stats-section .section-title { color: var(--white); }
 .stats-section .section-title::after { background: var(--gold); margin-inline: auto; }
+.stats-section .section-sub { color: var(--white); }
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
