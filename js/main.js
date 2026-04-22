@@ -200,17 +200,31 @@ function initTeamPanel() {
 function initVideos() {
     const videos = $$('.video-wrapper video');
     videos.forEach(video => {
-        const overlay = video.closest('.video-wrapper')?.querySelector('.video-play-overlay');
+        // Support both old .video-play-overlay and new .iphone-play-btn
+        const overlay = video.closest('.video-wrapper')?.querySelector('.video-play-overlay, .iphone-play-btn');
         if (!overlay) return;
-
+ 
         video.addEventListener('play', () => {
-            overlay.style.display = 'none';
-            // pause siblings
+            // New iphone-play-btn uses CSS class; old overlay used display
+            if (overlay.classList.contains('iphone-play-btn')) {
+                overlay.classList.add('is-playing');
+            } else {
+                overlay.style.display = 'none';
+            }
+            // Pause siblings
             videos.forEach(v => { if (v !== video && !v.paused) v.pause(); });
         });
+ 
         ['pause', 'ended'].forEach(evt => {
-            video.addEventListener(evt, () => { overlay.style.display = 'flex'; });
+            video.addEventListener(evt, () => {
+                if (overlay.classList.contains('iphone-play-btn')) {
+                    overlay.classList.remove('is-playing');
+                } else {
+                    overlay.style.display = 'flex';
+                }
+            });
         });
+ 
         overlay.addEventListener('click', () => video.play());
     });
 }
@@ -319,6 +333,178 @@ function initSmoothScroll() {
     });
 }
 
+const serviceData = {
+    'social-media': {
+        icon: 'fab fa-instagram',
+        badge: 'Most Popular',
+        title: 'Social Media Management',
+        description: 'Your audience lives on social media — and that\'s exactly where we meet them. We build, grow, and manage your presence across every platform that matters to your brand, turning followers into customers and customers into advocates.',
+        features: [
+            'Custom social media strategy aligned with your business goals',
+            'Content creation, design & scheduling across all platforms',
+            'Community management — replies, comments & reputation monitoring',
+            'Targeted paid social ad campaigns built to convert',
+            'Monthly analytics reports with actionable insights',
+        ],
+        pricingHref: 'pricing.html#social-media',
+        contactHref: 'contact.html',
+    },
+    'content': {
+        icon: 'fas fa-pen-fancy',
+        badge: 'Creative Excellence',
+        title: 'Content Creation',
+        description: 'Content is the currency of the digital world. We produce high-quality photos, videos, and written content that stops the scroll, tells your story, and moves people to act — consistently, across every touchpoint.',
+        features: [
+            'Professional corporate photography & videography shoots',
+            'Short-form video content optimised for social platforms',
+            'Scroll-stopping graphic design for social media',
+            'Copywriting for ads, websites, captions & email campaigns',
+            'SEO-optimised blog & article writing that builds authority',
+        ],
+        pricingHref: 'pricing.html#content',
+        contactHref: 'contact.html',
+    },
+    'digital-pr': {
+        icon: 'fas fa-bullhorn',
+        badge: 'Build Authority',
+        title: 'Digital PR Services',
+        description: 'Visibility is everything. We amplify your brand voice, secure media coverage, and position you as a credible authority in your industry — so the right people know your name before you ever reach out to them.',
+        features: [
+            'Press release writing & distribution to targeted media outlets',
+            'Proactive media outreach & journalist relationship building',
+            'Strategic influencer partnerships aligned to your audience',
+            'Thought leadership articles & ghostwritten industry content',
+            'Crisis management & rapid brand reputation response',
+        ],
+        pricingHref: 'pricing.html#digital-pr',
+        contactHref: 'contact.html',
+    },
+    'branding': {
+        icon: 'fas fa-palette',
+        badge: 'Stand Out',
+        title: 'Branding & Rebranding',
+        description: 'Your brand is more than a logo — it\'s your personality, your promise, and your story. We build identities that are memorable, meaningful, and built to last, whether you\'re establishing a brand from scratch or ready for a complete reinvention.',
+        features: [
+            'Brand strategy, positioning & competitive analysis',
+            'Logo design & complete visual identity system',
+            'Colour palette, typography & brand voice development',
+            'Comprehensive brand guidelines document',
+            'Marketing collateral — business cards, letterheads & more',
+        ],
+        pricingHref: 'pricing.html#branding',
+        contactHref: 'contact.html',
+    },
+    'web-design': {
+        icon: 'fas fa-laptop-code',
+        badge: 'Convert Visitors',
+        title: 'Web Design & Development',
+        description: 'Your website is your hardest-working team member — available 24/7, representing your brand to the world. We build websites that are beautiful, fast, and built to convert visitors into customers, from landing pages to full e-commerce stores.',
+        features: [
+            'Custom website design — on-brand, not off-the-shelf templates',
+            'Fully responsive development across all screen sizes',
+            'E-commerce with secure payment gateway integration',
+            'SEO-ready build — clean code, fast loads, on-page optimisation',
+            'CMS integration, training & 30–90 days post-launch support',
+        ],
+        pricingHref: 'pricing.html#web-design',
+        contactHref: 'contact.html',
+    },
+};
+
+/* ─────────────────────────────────────────────────────────────
+   INIT SERVICE DRAWER
+   ADD this function, then call it in DOMContentLoaded
+───────────────────────────────────────────────────────────── */
+function initServiceDrawer() {
+    const overlay   = $('#svcDrawerOverlay');
+    const drawer    = $('#svcDrawer');
+    const closeBtn  = $('#svcDrawerClose');
+    if (!drawer || !overlay) return;
+ 
+    // Drawer content refs
+    const iconEl     = $('#drawerIcon');
+    const badgeEl    = $('#drawerBadge');
+    const titleEl    = $('#drawerTitle');
+    const descEl     = $('#drawerDesc');
+    const featuresEl = $('#drawerFeatures');
+    const pricingBtn = $('#drawerPricingBtn');
+    const contactBtn = $('#drawerContactBtn');
+ 
+    function openDrawer(serviceKey) {
+        const svc = serviceData[serviceKey];
+        if (!svc) return;
+ 
+        // Populate
+        if (iconEl)     iconEl.className     = svc.icon;
+        if (badgeEl)    badgeEl.textContent   = svc.badge;
+        if (titleEl)    titleEl.textContent   = svc.title;
+        if (descEl)     descEl.textContent    = svc.description;
+        if (featuresEl) featuresEl.innerHTML  = svc.features
+            .map(f => `<li>${f}</li>`)
+            .join('');
+        if (pricingBtn) pricingBtn.href = svc.pricingHref;
+        if (contactBtn) contactBtn.href = svc.contactHref;
+ 
+        drawer.classList.add('is-open');
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+ 
+        // Focus close button for accessibility
+        setTimeout(() => closeBtn && closeBtn.focus(), 450);
+    }
+ 
+    function closeDrawer() {
+        drawer.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+ 
+    // Bind card buttons
+    $$('.svc-card-btn').forEach(btn => {
+        btn.addEventListener('click', () => openDrawer(btn.dataset.service));
+    });
+ 
+    // Close triggers
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeDrawer();
+    });
+}
+
+function initPortfolioFilter() {
+    const filterBtns = $$('.filter-btn');
+    const items      = $$('.port-item[data-category]');
+    const emptyEl    = $('#portfolioEmpty');
+    if (!filterBtns.length) return;
+ 
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            filterBtns.forEach(b => {
+                b.classList.remove('is-active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-selected', 'true');
+ 
+            const filter = btn.dataset.filter;
+            let visible  = 0;
+ 
+            items.forEach(item => {
+                const match = filter === 'all' || item.dataset.category === filter;
+                item.classList.toggle('is-hidden', !match);
+                if (match) visible++;
+            });
+ 
+            // Empty state
+            if (emptyEl) {
+                emptyEl.style.display = visible === 0 ? 'flex' : 'none';
+            }
+        });
+    });
+}
+
 /* ─────────────────────────────────────────
    INIT ALL
 ───────────────────────────────────────── */
@@ -331,4 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQ();
     initContactForm();
     initSmoothScroll();
+    initServiceDrawer();
+    initPortfolioFilter();
 });

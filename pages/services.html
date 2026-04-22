@@ -52,7 +52,7 @@
 </section>
 
 
-<!-- overview stats -->
+<!-- overview stats — UNCHANGED -->
 <section class="overview-section">
   <div class="container">
     <div class="section-head">
@@ -82,217 +82,88 @@
 </section>
 
 
-<!-- social media -->
-<section class="service-detail-row" id="social-media">
-  <div class="container service-row-inner">
-    <div class="service-detail-img-wrap scroll-reveal">
-      <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg" alt="Social Media Management" class="service-detail-img" />
-      <div class="service-detail-icon-badge"><i class="fab fa-instagram"></i></div>
+<!-- ============================================================
+     NEW: Services card grid — replaces all service-detail-rows
+     ============================================================ -->
+<section class="svc-grid-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Our Services</span>
+      <h2 class="section-title">What We Offer</h2>
+      <p class="section-sub">Click any service to explore what's included, see our features, and find the right package for your brand.</p>
     </div>
-    <div class="scroll-reveal" style="--delay:0.15s">
-      <span class="service-detail-badge">Most Popular</span>
-      <h2 class="service-detail-title">Social Media Account & Ad Management</h2>
-      <p class="service-detail-desc">Your audience lives on social media — and that's exactly where we meet them. We build, grow, and manage your presence across every platform that matters to your brand.</p>
-      <ul class="service-features-list">
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Social Media Strategy</strong><p>Custom strategies aligned with your business goals and target audience.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Content Creation & Scheduling</strong><p>Eye-catching posts, reels, and stories published consistently.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Community Management</strong><p>Real-time engagement, comment replies, and reputation monitoring.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Paid Social Advertising</strong><p>Targeted ad campaigns on Meta, TikTok, and more — built to convert.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Monthly Analytics Reports</strong><p>Clear, data-driven reports so you always know what's working.</p></div>
-        </li>
-      </ul>
-      <div class="service-detail-actions">
-        <a href="pricing.html#social-media" class="btn btn--gold">View Pricing</a>
-        <a href="contact.html" class="btn btn--outline">Get Started</a>
+
+    <div class="services-overview-grid">
+
+      <!-- Social Media -->
+      <div class="svc-card scroll-reveal" id="social-media">
+        <div class="svc-card-icon"><i class="fab fa-instagram"></i></div>
+        <h3 class="svc-card-title">Social Media Management</h3>
+        <p class="svc-card-desc">Grow your presence across every platform that matters. We build strategy, create content, and manage your community so you can focus on running your business.</p>
+        <button class="svc-card-btn" data-service="social-media">Learn More <i class="fas fa-arrow-right"></i></button>
       </div>
+
+      <!-- Content Creation -->
+      <div class="svc-card scroll-reveal" style="--delay:0.1s" id="content">
+        <div class="svc-card-icon"><i class="fas fa-pen-fancy"></i></div>
+        <h3 class="svc-card-title">Content Creation</h3>
+        <p class="svc-card-desc">From corporate shoots to scroll-stopping social graphics — we produce high-quality content that tells your story and moves people to act.</p>
+        <button class="svc-card-btn" data-service="content">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <!-- Digital PR -->
+      <div class="svc-card scroll-reveal" style="--delay:0.2s" id="digital-pr">
+        <div class="svc-card-icon"><i class="fas fa-bullhorn"></i></div>
+        <h3 class="svc-card-title">Digital PR Services</h3>
+        <p class="svc-card-desc">Amplify your brand voice, secure media coverage, and build the kind of authority that earns trust before a customer ever visits your site.</p>
+        <button class="svc-card-btn" data-service="digital-pr">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <!-- Branding -->
+      <div class="svc-card scroll-reveal" style="--delay:0.1s" id="branding">
+        <div class="svc-card-icon"><i class="fas fa-palette"></i></div>
+        <h3 class="svc-card-title">Branding & Rebranding</h3>
+        <p class="svc-card-desc">Your brand is more than a logo. We build identities that are memorable, meaningful, and built to last — whether you're starting fresh or starting over.</p>
+        <button class="svc-card-btn" data-service="branding">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <!-- Web Design -->
+      <div class="svc-card scroll-reveal" style="--delay:0.2s" id="web-design">
+        <div class="svc-card-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3 class="svc-card-title">Web Design & Development</h3>
+        <p class="svc-card-desc">Beautiful, fast, conversion-focused websites that represent your brand at its best — and work hard for you 24/7.</p>
+        <button class="svc-card-btn" data-service="web-design">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
     </div>
   </div>
 </section>
 
 
-<!-- content creation -->
-<section class="service-detail-row alt" id="content">
-  <div class="container service-row-inner reverse">
-    <div class="service-detail-img-wrap scroll-reveal">
-      <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg" alt="Content Creation" class="service-detail-img" />
-      <div class="service-detail-icon-badge"><i class="fas fa-pen-fancy"></i></div>
-    </div>
-    <div class="scroll-reveal" style="--delay:0.15s">
-      <span class="service-detail-badge">Creative Excellence</span>
-      <h2 class="service-detail-title">Content Creation & Corporate Shoots</h2>
-      <p class="service-detail-desc">Content is the currency of the digital world. We produce high-quality photos, videos, and written content that stops the scroll, tells your story, and moves people to act.</p>
-      <ul class="service-features-list">
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Photography & Videography</strong><p>Professional corporate shoots, product photography, and short-form video content.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Social Media Graphics</strong><p>Scroll-stopping designs tailored to your brand's visual identity.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Copywriting</strong><p>Compelling copy for ads, websites, captions, and email campaigns.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Blog & Article Writing</strong><p>SEO-optimised long-form content that builds authority and drives organic traffic.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Email Newsletters</strong><p>Beautifully designed, high-converting email campaigns your subscribers will actually read.</p></div>
-        </li>
-      </ul>
-      <div class="service-detail-actions">
-        <a href="pricing.html#content" class="btn btn--gold">View Pricing</a>
-        <a href="contact.html" class="btn btn--outline">Get Started</a>
-      </div>
+<!-- ============================================================
+     SERVICE DRAWER — slides in from right on card button click
+     ============================================================ -->
+<div class="svc-drawer-overlay" id="svcDrawerOverlay"></div>
+
+<aside class="svc-drawer" id="svcDrawer" role="dialog" aria-modal="true" aria-label="Service details">
+  <button class="svc-drawer-close" id="svcDrawerClose" aria-label="Close drawer">
+    <i class="fas fa-times"></i>
+  </button>
+  <div class="svc-drawer-body">
+    <div class="svc-drawer-icon"><i id="drawerIcon"></i></div>
+    <span class="svc-drawer-badge" id="drawerBadge"></span>
+    <h2 class="svc-drawer-title" id="drawerTitle"></h2>
+    <p class="svc-drawer-desc" id="drawerDesc"></p>
+    <ul class="svc-drawer-features" id="drawerFeatures"></ul>
+    <div class="svc-drawer-actions">
+      <a class="btn btn--gold" id="drawerPricingBtn" href="#">View Pricing</a>
+      <a class="btn btn--ghost" id="drawerContactBtn" href="contact.html">Get Started</a>
     </div>
   </div>
-</section>
+</aside>
 
 
-<!-- digital pr -->
-<section class="service-detail-row" id="digital-pr">
-  <div class="container service-row-inner">
-    <div class="service-detail-img-wrap scroll-reveal">
-      <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="Digital PR Services" class="service-detail-img" />
-      <div class="service-detail-icon-badge"><i class="fas fa-bullhorn"></i></div>
-    </div>
-    <div class="scroll-reveal" style="--delay:0.15s">
-      <span class="service-detail-badge">Build Authority</span>
-      <h2 class="service-detail-title">Digital PR Services</h2>
-      <p class="service-detail-desc">Visibility is everything. We amplify your brand voice, secure media coverage, and position you as a credible authority in your industry — so the right people know your name.</p>
-      <ul class="service-features-list">
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Press Release Writing & Distribution</strong><p>Professional press releases distributed to relevant media outlets and journalists.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Media Outreach</strong><p>Building genuine relationships with journalists, bloggers, and editors who cover your space.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Influencer Partnerships</strong><p>Strategic collaborations with influencers who align with your brand values and audience.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Thought Leadership</strong><p>Ghostwritten articles and speaking opportunities to establish your voice in the industry.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Crisis Management</strong><p>Rapid response strategies to protect and restore your brand reputation when it matters most.</p></div>
-        </li>
-      </ul>
-      <div class="service-detail-actions">
-        <a href="pricing.html#digital-pr" class="btn btn--gold">View Pricing</a>
-        <a href="contact.html" class="btn btn--outline">Get Started</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- branding -->
-<section class="service-detail-row alt" id="branding">
-  <div class="container service-row-inner reverse">
-    <div class="service-detail-img-wrap scroll-reveal">
-      <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg" alt="Branding & Rebranding" class="service-detail-img" />
-      <div class="service-detail-icon-badge"><i class="fas fa-palette"></i></div>
-    </div>
-    <div class="scroll-reveal" style="--delay:0.15s">
-      <span class="service-detail-badge">Stand Out</span>
-      <h2 class="service-detail-title">Branding & Rebranding</h2>
-      <p class="service-detail-desc">Your brand is more than a logo. It's your personality, your promise, your story. We build brand identities that are memorable, meaningful, and built to last — from scratch or starting over.</p>
-      <ul class="service-features-list">
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Brand Strategy & Positioning</strong><p>Defining what you stand for, who you serve, and how you're different from everyone else.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Logo Design & Visual Identity</strong><p>Distinctive logos, colour palettes, typography, and icon systems that work across every touchpoint.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Brand Voice & Messaging</strong><p>The words, tone, and personality that make your brand sound unmistakably like itself.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Brand Guidelines</strong><p>A comprehensive guide so your brand stays consistent no matter who's executing it.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Marketing Collateral Design</strong><p>Business cards, letterheads, presentations, and all the materials your brand needs in the real world.</p></div>
-        </li>
-      </ul>
-      <div class="service-detail-actions">
-        <a href="pricing.html#branding" class="btn btn--gold">View Pricing</a>
-        <a href="contact.html" class="btn btn--outline">Get Started</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- web design -->
-<section class="service-detail-row" id="web-design">
-  <div class="container service-row-inner">
-    <div class="service-detail-img-wrap scroll-reveal">
-      <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg" alt="Web Design & Development" class="service-detail-img" />
-      <div class="service-detail-icon-badge"><i class="fas fa-laptop-code"></i></div>
-    </div>
-    <div class="scroll-reveal" style="--delay:0.15s">
-      <span class="service-detail-badge">Convert Visitors</span>
-      <h2 class="service-detail-title">Web Design & Development</h2>
-      <p class="service-detail-desc">Your website is your hardest-working team member — available 24/7, representing your brand to the world. We build websites that are beautiful, fast, and built to convert visitors into customers.</p>
-      <ul class="service-features-list">
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Custom Website Design</strong><p>Unique, on-brand designs that reflect who you are — not generic templates.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>Responsive Development</strong><p>Flawless experience on every screen size — desktop, tablet, and mobile.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>E-Commerce Development</strong><p>Full-featured online stores with secure payment integration and product management.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>SEO-Ready Build</strong><p>Clean code, fast load times, and on-page optimisation baked in from day one.</p></div>
-        </li>
-        <li class="service-feature-item">
-          <i class="fas fa-check-circle"></i>
-          <div><strong>CMS & Ongoing Maintenance</strong><p>Easy-to-manage content systems and ongoing support so your site never goes stale.</p></div>
-        </li>
-      </ul>
-      <div class="service-detail-actions">
-        <a href="pricing.html#web-design" class="btn btn--gold">View Pricing</a>
-        <a href="contact.html" class="btn btn--outline">Get Started</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- process -->
+<!-- process — UNCHANGED -->
 <section class="process-section">
   <div class="container">
     <div class="section-head">
@@ -326,7 +197,7 @@
 </section>
 
 
-<!-- cta -->
+<!-- cta — UNCHANGED -->
 <section class="cta-band">
   <div class="cta-band-inner">
     <div class="cta-band-text scroll-reveal">
@@ -341,7 +212,7 @@
 </section>
 
 
-<!-- footer -->
+<!-- footer — Phase 1 LinkedIn added -->
 <footer class="footer">
   <div class="footer-top">
     <div class="container footer-top-inner">
@@ -355,6 +226,7 @@
           <a href="https://www.facebook.com/profile.php?id=61569152649175" target="_blank" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://x.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/apeiron-digital" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://www.tiktok.com/@apeiron.digital" target="_blank" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>

@@ -9,15 +9,10 @@
 
     <title>About Us — Apeiron Digital Marketing</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <!-- Styles -->
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
@@ -49,19 +44,15 @@
         </button>
     </div>
 </nav>
-
-
-<!-- page hero -->
 <section class="page-hero">
     <div class="page-hero-inner">
         <span class="page-hero-label">Who We Are</span>
-        <h1 class="page-hero-title">Built on Creativity,<br /><em>Driven by Results</em></h1>
+        <h1 class="page-hero-title">Unleashing the<br /><em>Boundless Potential</em><br />of Brands</h1>
         <p class="page-hero-sub">We're a passionate team of creatives, strategists, and storytellers helping brands grow in the digital world.</p>
     </div>
 </section>
 
 
-<!-- story -->
 <section class="story-section">
     <div class="container story-inner">
 
@@ -94,7 +85,7 @@
 </section>
 
 
-<!-- mission, vision, values -->
+<!-- mission, vision, values — UNCHANGED -->
 <section class="mv-section">
     <div class="container">
         <div class="section-head">
@@ -134,7 +125,7 @@
 </section>
 
 
-<!-- stats -->
+<!-- stats — UNCHANGED -->
 <section class="stats-section">
     <div class="container">
         <div class="section-head">
@@ -174,7 +165,7 @@
 </section>
 
 
-<!-- team -->
+<!-- team — UNCHANGED -->
 <section class="team-section">
     <div class="container">
         <div class="section-head">
@@ -237,7 +228,7 @@
     </div>
 </section>
 
-<!-- Team Panel (slide-in) -->
+<!-- Team Panel — UNCHANGED -->
 <div class="team-panel-overlay"></div>
 <aside class="team-panel" role="dialog" aria-modal="true" aria-label="Team member details">
     <button class="team-panel-close" aria-label="Close panel"><i class="fas fa-times"></i></button>
@@ -250,7 +241,14 @@
 </aside>
 
 
-<!-- videos -->
+<!-- ============================================================
+     CHANGE 2 — videos section
+     Each .video-wrapper is now wrapped in an iPhone 17 Pro Max
+     CSS frame (.iphone-frame). The old .video-play-overlay
+     (Font Awesome icon) is replaced with .iphone-play-btn
+     (gold circle + navy triangle). JS targets .iphone-play-btn
+     via the existing initVideos() — see phase3_main_js_patch.js
+     ============================================================ -->
 <section class="videos-section">
     <div class="container">
         <div class="section-head">
@@ -261,10 +259,24 @@
 
         <div class="videos-grid">
 
+            <!-- VIDEO 1 -->
             <div class="video-card scroll-reveal">
-                <div class="video-wrapper">
-                    <video src="https://res.cloudinary.com/djmyiuu5k/video/upload/v1769555555/5906870759866768514_yufsc0.mp4" preload="none" controls></video>
-                    <div class="video-play-overlay"><i class="fas fa-play-circle"></i></div>
+                <div class="iphone-frame">
+                    <!-- Dynamic Island -->
+                    <div class="iphone-dynamic-island"></div>
+                    <!-- Side button (right) -->
+                    <div class="iphone-side-btn"></div>
+                    <!-- Screen -->
+                    <div class="iphone-screen">
+                        <div class="video-wrapper">
+                            <video src="https://res.cloudinary.com/djmyiuu5k/video/upload/v1769555555/5906870759866768514_yufsc0.mp4" preload="none" controls></video>
+                            <div class="iphone-play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="7,4 21,12 7,20" fill="#0d1f3c"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="video-info">
                     <div class="video-title">How We Build Brands</div>
@@ -272,10 +284,21 @@
                 </div>
             </div>
 
+            <!-- VIDEO 2 -->
             <div class="video-card scroll-reveal" style="--delay:0.1s">
-                <div class="video-wrapper">
-                    <video src="https://res.cloudinary.com/djmyiuu5k/video/upload/v1769555555/5906870759866768548_mmvanp.mp4" preload="none" controls></video>
-                    <div class="video-play-overlay"><i class="fas fa-play-circle"></i></div>
+                <div class="iphone-frame">
+                    <div class="iphone-dynamic-island"></div>
+                    <div class="iphone-side-btn"></div>
+                    <div class="iphone-screen">
+                        <div class="video-wrapper">
+                            <video src="https://res.cloudinary.com/djmyiuu5k/video/upload/v1769555555/5906870759866768548_mmvanp.mp4" preload="none" controls></video>
+                            <div class="iphone-play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="7,4 21,12 7,20" fill="#0d1f3c"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="video-info">
                     <div class="video-title">Campaign Strategy Session</div>
@@ -283,10 +306,21 @@
                 </div>
             </div>
 
+            <!-- VIDEO 3 -->
             <div class="video-card scroll-reveal" style="--delay:0.2s">
-                <div class="video-wrapper">
-                    <video src="https://res.cloudinary.com/djmyiuu5k/video/upload/v1769555556/5909122559680455070_qsqcd7.mp4" preload="none" controls></video>
-                    <div class="video-play-overlay"><i class="fas fa-play-circle"></i></div>
+                <div class="iphone-frame">
+                    <div class="iphone-dynamic-island"></div>
+                    <div class="iphone-side-btn"></div>
+                    <div class="iphone-screen">
+                        <div class="video-wrapper">
+                            <video src="https://res.cloudinary.com/djmyiuu5k/video/upload/v1769555556/5909122559680455070_qsqcd7.mp4" preload="none" controls></video>
+                            <div class="iphone-play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="7,4 21,12 7,20" fill="#0d1f3c"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="video-info">
                     <div class="video-title">A Day at Apeiron</div>
@@ -299,7 +333,7 @@
 </section>
 
 
-<!-- why us -->
+<!-- why us — UNCHANGED -->
 <section class="why-section">
     <div class="container">
         <div class="section-head">
@@ -351,7 +385,7 @@
 </section>
 
 
-<!-- cta -->
+<!-- cta — UNCHANGED -->
 <section class="cta-band">
     <div class="cta-band-inner">
         <div class="cta-band-text scroll-reveal">
@@ -366,7 +400,7 @@
 </section>
 
 
-<!-- footer -->
+<!-- footer — Phase 1 LinkedIn added -->
 <footer class="footer">
     <div class="footer-top">
         <div class="container footer-top-inner">
@@ -386,6 +420,7 @@
                     <a href="https://www.facebook.com/profile.php?id=61569152649175" target="_blank" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/apeiron_digital" target="_blank" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/apeiron-digital" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.tiktok.com/@apeiron.digital" target="_blank" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>

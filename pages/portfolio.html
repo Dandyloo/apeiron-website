@@ -37,7 +37,57 @@
     </div>
 </nav>
 
-<section class="port-hero">
+
+<!-- ============================================================
+     NEW PORTFOLIO HERO — dark navy with doodles + radial glow
+     ============================================================ -->
+<section class="port-hero port-hero--dark">
+
+    <!-- SVG art doodles — scattered abstract marks -->
+    <div class="port-hero-doodles" aria-hidden="true">
+        <svg class="doodle doodle--1" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="55" stroke="currentColor" stroke-width="1.5" stroke-dasharray="8 6"/>
+            <circle cx="60" cy="60" r="30" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <svg class="doodle doodle--2" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="40" x2="80" y2="40" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="40" y1="0" x2="40" y2="80" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="10" x2="70" y2="70" stroke="currentColor" stroke-width="1"/>
+            <line x1="70" y1="10" x2="10" y2="70" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <svg class="doodle doodle--3" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 5 L55 52 L5 52 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <svg class="doodle doodle--4" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="4" fill="currentColor"/>
+            <circle cx="8"  cy="8"  r="2.5" fill="currentColor"/>
+            <circle cx="42" cy="8"  r="2.5" fill="currentColor"/>
+            <circle cx="8"  cy="42" r="2.5" fill="currentColor"/>
+            <circle cx="42" cy="42" r="2.5" fill="currentColor"/>
+        </svg>
+        <svg class="doodle doodle--5" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 20 Q25 0 50 20 Q75 40 100 20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M0 28 Q25 8 50 28 Q75 48 100 28" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+        <svg class="doodle doodle--6" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="30" y1="0"  x2="30" y2="60" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="0"  y1="30" x2="60" y2="30" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="8"  y1="8"  x2="52" y2="52" stroke="currentColor" stroke-width="1"/>
+            <line x1="52" y1="8"  x2="8"  y2="52" stroke="currentColor" stroke-width="1"/>
+            <circle cx="30" cy="30" r="12" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <svg class="doodle doodle--7" viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+        </svg>
+        <svg class="doodle doodle--8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="5" width="30" height="30" stroke="currentColor" stroke-width="1.5" rx="4"/>
+            <rect x="13" y="13" width="14" height="14" stroke="currentColor" stroke-width="1" rx="2"/>
+        </svg>
+    </div>
+
+    <!-- Radial gold glow behind headline -->
+    <div class="port-hero-glow" aria-hidden="true"></div>
+
     <div class="port-hero-inner">
         <div class="port-hero-meta">
             <span class="port-hero-label">Selected Work</span>
@@ -49,6 +99,8 @@
     <div class="port-hero-rule"></div>
 </section>
 
+
+<!-- filter bar — UNCHANGED markup -->
 <div class="port-filter-wrap">
     <div class="container">
         <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
@@ -62,166 +114,134 @@
     </div>
 </div>
 
+
+<!-- ============================================================
+     NEW MASONRY GRID — CSS columns, natural image heights
+     ============================================================ -->
 <section class="port-grid-section">
     <div class="container">
-        <div class="port-grid" id="portfolioGrid">
+
+        <div class="port-masonry" id="portfolioGrid">
 
             <!-- 01: Nibbles N Bites -->
-            <a href="project-nibbles.html" class="port-card scroll-reveal" data-category="branding">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg"
-                         alt="Nibbles N Bites — brand identity and packaging design"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">01</span><span class="port-card-cat">Branding</span></div>
-                    <h2 class="port-card-title">Nibbles N Bites</h2>
+            <a href="project-nibbles.html" class="port-item scroll-reveal" data-category="branding">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg"
+                     alt="Nibbles N Bites — brand identity and packaging design" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Branding</span>
+                    <span class="port-item-title">Nibbles N Bites</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
-            <!-- 02: Royal Antique Home — NEW -->
-            <a href="project-royal-antique.html" class="port-card scroll-reveal" style="--delay:0.08s" data-category="web-design">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_600/v1776245591/hero_chhh4r.png"
-                         alt="Royal Antique Home — premium furniture website design"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">02</span><span class="port-card-cat">Web Design</span></div>
-                    <h2 class="port-card-title">Royal Antique Home</h2>
+            <!-- 02: Royal Antique Home -->
+            <a href="project-royal-antique.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="web-design">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_600/v1776245591/hero_chhh4r.png"
+                     alt="Royal Antique Home — premium furniture website design" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Web Design</span>
+                    <span class="port-item-title">Royal Antique Home</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
             <!-- 03: EcoGreen -->
-            <a href="project-ecogreen.html" class="port-card scroll-reveal" style="--delay:0.16s" data-category="branding">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg"
-                         alt="EcoGreen — brand rebranding project"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">03</span><span class="port-card-cat">Branding</span></div>
-                    <h2 class="port-card-title">EcoGreen Rebranding</h2>
+            <a href="project-ecogreen.html" class="port-item scroll-reveal" style="--delay:0.1s" data-category="branding">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg"
+                     alt="EcoGreen — brand rebranding project" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Branding</span>
+                    <span class="port-item-title">EcoGreen Rebranding</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
             <!-- 04: StyleHub -->
-            <a href="project-stylehub.html" class="port-card scroll-reveal" data-category="social-media">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg"
-                         alt="StyleHub — social media campaign"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">04</span><span class="port-card-cat">Social Media</span></div>
-                    <h2 class="port-card-title">StyleHub Campaign</h2>
+            <a href="project-stylehub.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="social-media">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg"
+                     alt="StyleHub — social media campaign" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Social Media</span>
+                    <span class="port-item-title">StyleHub Campaign</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
             <!-- 05: TechVision -->
-            <a href="project-techvision.html" class="port-card scroll-reveal" style="--delay:0.08s" data-category="web-design">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
-                         alt="TechVision — website redesign project"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">05</span><span class="port-card-cat">Web Design</span></div>
-                    <h2 class="port-card-title">TechVision Redesign</h2>
+            <a href="project-techvision.html" class="port-item scroll-reveal" style="--delay:0.1s" data-category="web-design">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
+                     alt="TechVision — website redesign project" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Web Design</span>
+                    <span class="port-item-title">TechVision Redesign</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
             <!-- 06: Zara Foods -->
-            <a href="project-zarafoods.html" class="port-card scroll-reveal" style="--delay:0.16s" data-category="content">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg"
-                         alt="Zara Foods — content creation and product launch campaign"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">06</span><span class="port-card-cat">Content Creation</span></div>
-                    <h2 class="port-card-title">Zara Foods Launch</h2>
+            <a href="project-zarafoods.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="content">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg"
+                     alt="Zara Foods — content creation and product launch campaign" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Content Creation</span>
+                    <span class="port-item-title">Zara Foods Launch</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
             <!-- 07: NovaPay -->
-            <a href="project-novapay.html" class="port-card scroll-reveal" data-category="digital-pr">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
-                         alt="NovaPay — digital PR campaign"
-                         class="port-card-img"
-                         width="600" height="450" />
-                    <div class="port-card-hover"><span>View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">07</span><span class="port-card-cat">Digital PR</span></div>
-                    <h2 class="port-card-title">NovaPay Digital PR</h2>
+            <a href="project-novapay.html" class="port-item scroll-reveal" style="--delay:0.1s" data-category="digital-pr">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
+                     alt="NovaPay — digital PR campaign" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Digital PR</span>
+                    <span class="port-item-title">NovaPay Digital PR</span>
+                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
             <!-- 08: GreenLeaf — Coming Soon -->
-            <div class="port-card scroll-reveal" style="--delay:0.08s" data-category="branding" aria-label="GreenLeaf Identity — coming soon">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg"
-                         alt="GreenLeaf Identity — branding project coming soon"
-                         class="port-card-img"
-                         width="600" height="450" />
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">08</span><span class="port-card-cat">Branding &middot; Coming Soon</span></div>
-                    <h2 class="port-card-title">GreenLeaf Identity</h2>
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.05s" data-category="branding">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg"
+                     alt="GreenLeaf Identity — coming soon" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Branding · Coming Soon</span>
+                    <span class="port-item-title">GreenLeaf Identity</span>
                 </div>
             </div>
 
             <!-- 09: BeautyBox — Coming Soon -->
-            <div class="port-card scroll-reveal" style="--delay:0.16s" data-category="social-media" aria-label="BeautyBox Social — coming soon">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg"
-                         alt="BeautyBox Social — social media project coming soon"
-                         class="port-card-img"
-                         width="600" height="450" />
-                </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">09</span><span class="port-card-cat">Social Media &middot; Coming Soon</span></div>
-                    <h2 class="port-card-title">BeautyBox Social</h2>
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.1s" data-category="social-media">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg"
+                     alt="BeautyBox Social — coming soon" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Social Media · Coming Soon</span>
+                    <span class="port-item-title">BeautyBox Social</span>
                 </div>
             </div>
 
             <!-- 10: Sunrise — Coming Soon -->
-            <div class="port-card scroll-reveal" data-category="content" aria-label="Sunrise Content Campaign — coming soon">
-                <div class="port-card-img-wrap">
-                    <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg"
-                         alt="Sunrise Content Campaign — content creation project coming soon"
-                         class="port-card-img"
-                         width="600" height="450" />
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.05s" data-category="content">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg"
+                     alt="Sunrise Content Campaign — coming soon" />
+                <div class="port-item-overlay">
+                    <span class="port-item-cat">Content · Coming Soon</span>
+                    <span class="port-item-title">Sunrise Campaign</span>
                 </div>
-                <div class="port-card-info">
-                    <div class="port-card-meta"><span class="port-card-num">10</span><span class="port-card-cat">Content Creation &middot; Coming Soon</span></div>
-                    <h2 class="port-card-title">Sunrise Content Campaign</h2>
-                </div>
-            </div>
-
-            <div class="portfolio-empty" id="portfolioEmpty" aria-live="polite">
-                <i class="fas fa-folder-open"></i>
-                <p>No projects in this category yet. Check back soon!</p>
             </div>
 
         </div>
+
+        <!-- JS-injected empty state (replaces old .portfolio-empty div) -->
+        <p class="port-masonry-empty" id="portfolioEmpty" style="display:none;">
+            <i class="fas fa-folder-open"></i> No projects in this category yet — check back soon.
+        </p>
+
     </div>
 </section>
 
+
+<!-- brands text grid — UNCHANGED -->
 <section class="port-clients">
     <div class="container">
         <p class="port-clients-label">Brands we've worked with</p>
@@ -240,6 +260,8 @@
     </div>
 </section>
 
+
+<!-- cta band — UNCHANGED -->
 <section class="cta-band">
     <div class="cta-band-inner">
         <div class="cta-band-text scroll-reveal">
@@ -253,6 +275,8 @@
     </div>
 </section>
 
+
+<!-- footer — Phase 1 LinkedIn added -->
 <footer class="footer">
     <div class="footer-top">
         <div class="container footer-top-inner">
@@ -269,6 +293,7 @@
                     <a href="https://www.facebook.com/profile.php?id=61569152649175" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/apeiron_digital" target="_blank" rel="noopener" class="footer-social" aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/apeiron_digital" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/apeiron-digital" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.tiktok.com/@apeiron.digital" target="_blank" rel="noopener" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
@@ -310,34 +335,5 @@
 </footer>
 
 <script src="../js/main.js"></script>
-<script>
-(function () {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.port-card[data-category]');
-    const emptyState = document.getElementById('portfolioEmpty');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => {
-                b.classList.remove('is-active');
-                b.setAttribute('aria-selected', 'false');
-            });
-            btn.classList.add('is-active');
-            btn.setAttribute('aria-selected', 'true');
-
-            const filter = btn.dataset.filter;
-            let visible = 0;
-
-            cards.forEach(card => {
-                const match = filter === 'all' || card.dataset.category === filter;
-                card.classList.toggle('is-hidden', !match);
-                if (match) visible++;
-            });
-
-            emptyState.classList.toggle('is-visible', visible === 0);
-        });
-    });
-})();
-</script>
 </body>
 </html>
