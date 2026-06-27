@@ -747,7 +747,13 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
     margin-top: .25rem;
 }
-
+@media (max-width: 480px){
+.about-strip .section-title {
+    text-align: center;
+    font-size: 2.0rem;
+ }
+ 
+}
 /* portfolio preview */
 .portfolio-preview {
     padding-block: var(--space-xl);
