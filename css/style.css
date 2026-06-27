@@ -782,6 +782,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     cursor: pointer;
     box-shadow: var(--shadow-md);
+    aspect-ratio: 4 / 3;
 }
 
 .portfolio-tile-img {
