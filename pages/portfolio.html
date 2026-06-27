@@ -116,14 +116,44 @@
 
 
 <!-- ============================================================
-     NEW MASONRY GRID — CSS columns, natural image heights
+     MASONRY GRID — CSS columns, natural image heights
+
+     ─────────────────────────────────────────────────────────────
+     HOW TO ADD A NEW PROJECT CARD
+     ─────────────────────────────────────────────────────────────
+     Copy ONE of the two block templates below and paste it into
+     the grid. Edit only: data-category, href, image src/alt, the
+     category label, and the title. Don't change the structure —
+     it keeps every card visually consistent.
+
+     1) LIVE PROJECT CARD (links to a project-*.html case study)
+        <a href="project-<slug>.html" class="port-item scroll-reveal" data-category="<category>">
+            <img src="<cloudinary-url>" alt="<project> — <short description>" />
+            <div class="port-item-overlay">
+                <span class="port-item-cat"><Category Label></span>
+                <span class="port-item-title"><Project Title></span>
+                <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+     2) COMING-SOON CARD (no link, visually muted)
+        <div class="port-item port-item--soon scroll-reveal" data-category="<category>">
+            <img src="<cloudinary-url>" alt="<project> — coming soon" />
+            <div class="port-item-overlay">
+                <span class="port-item-cat"><Category Label> · Coming Soon</span>
+                <span class="port-item-title"><Project Title></span>
+            </div>
+        </div>
+
+     Valid data-category values (must match a filter button):
+       branding | social-media | web-design | content | digital-pr
      ============================================================ -->
 <section class="port-grid-section">
     <div class="container">
 
         <div class="port-masonry" id="portfolioGrid">
 
-            <!-- 01: Nibbles N Bites -->
+            <!-- 01: Nibbles N Bites — LIVE -->
             <a href="project-nibbles.html" class="port-item scroll-reveal" data-category="branding">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg"
                      alt="Nibbles N Bites — brand identity and packaging design" />
@@ -134,7 +164,7 @@
                 </div>
             </a>
 
-            <!-- 02: Royal Antique Home -->
+            <!-- 02: Royal Antique Home — LIVE -->
             <a href="project-royal-antique.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="web-design">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_600/v1776245591/hero_chhh4r.png"
                      alt="Royal Antique Home — premium furniture website design" />
@@ -145,60 +175,55 @@
                 </div>
             </a>
 
-            <!-- 03: EcoGreen -->
-            <a href="project-ecogreen.html" class="port-item scroll-reveal" style="--delay:0.1s" data-category="branding">
+            <!-- 03: EcoGreen — Coming Soon (case study in production) -->
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.1s" data-category="branding">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555639/ecogreen_njudsd.jpg"
-                     alt="EcoGreen — brand rebranding project" />
+                     alt="EcoGreen Rebranding — coming soon" />
                 <div class="port-item-overlay">
-                    <span class="port-item-cat">Branding</span>
+                    <span class="port-item-cat">Branding · Coming Soon</span>
                     <span class="port-item-title">EcoGreen Rebranding</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </a>
+            </div>
 
-            <!-- 04: StyleHub -->
-            <a href="project-stylehub.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="social-media">
+            <!-- 04: StyleHub — Coming Soon -->
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.05s" data-category="social-media">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555645/stylehub_stjxiv.jpg"
-                     alt="StyleHub — social media campaign" />
+                     alt="StyleHub Campaign — coming soon" />
                 <div class="port-item-overlay">
-                    <span class="port-item-cat">Social Media</span>
+                    <span class="port-item-cat">Social Media · Coming Soon</span>
                     <span class="port-item-title">StyleHub Campaign</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </a>
+            </div>
 
-            <!-- 05: TechVision -->
-            <a href="project-techvision.html" class="port-item scroll-reveal" style="--delay:0.1s" data-category="web-design">
+            <!-- 05: TechVision — Coming Soon -->
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.1s" data-category="web-design">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
-                     alt="TechVision — website redesign project" />
+                     alt="TechVision Redesign — coming soon" />
                 <div class="port-item-overlay">
-                    <span class="port-item-cat">Web Design</span>
+                    <span class="port-item-cat">Web Design · Coming Soon</span>
                     <span class="port-item-title">TechVision Redesign</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </a>
+            </div>
 
-            <!-- 06: Zara Foods -->
-            <a href="project-zarafoods.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="content">
+            <!-- 06: Zara Foods — Coming Soon -->
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.05s" data-category="content">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555644/ladies_o7em49.jpg"
-                     alt="Zara Foods — content creation and product launch campaign" />
+                     alt="Zara Foods Launch — coming soon" />
                 <div class="port-item-overlay">
-                    <span class="port-item-cat">Content Creation</span>
+                    <span class="port-item-cat">Content Creation · Coming Soon</span>
                     <span class="port-item-title">Zara Foods Launch</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </a>
+            </div>
 
-            <!-- 07: NovaPay -->
-            <a href="project-novapay.html" class="port-item scroll-reveal" style="--delay:0.1s" data-category="digital-pr">
+            <!-- 07: NovaPay — Coming Soon -->
+            <div class="port-item port-item--soon scroll-reveal" style="--delay:0.1s" data-category="digital-pr">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555647/techvision_vcclpq.jpg"
-                     alt="NovaPay — digital PR campaign" />
+                     alt="NovaPay Digital PR — coming soon" />
                 <div class="port-item-overlay">
-                    <span class="port-item-cat">Digital PR</span>
+                    <span class="port-item-cat">Digital PR · Coming Soon</span>
                     <span class="port-item-title">NovaPay Digital PR</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </a>
+            </div>
 
             <!-- 08: GreenLeaf — Coming Soon -->
             <div class="port-item port-item--soon scroll-reveal" style="--delay:0.05s" data-category="branding">
@@ -231,6 +256,7 @@
             </div>
 
         </div>
+
 
         <!-- JS-injected empty state (replaces old .portfolio-empty div) -->
         <p class="port-masonry-empty" id="portfolioEmpty" style="display:none;">

@@ -295,14 +295,46 @@ function initContactForm() {
         if (msgEl) msgEl.style.display = 'none';
 
         try {
-            // TODO: swap simulation below with real endpoint
-            await new Promise(r => setTimeout(r, 1800));
+            // ───────────────────────────────────────────────────────────────
+            // mailto: fallback submission
+            // No backend required — opens the user's email client with a
+            // pre-filled message addressed to info@apeironhub.com.
+            // To swap in a real serverless endpoint later (e.g. Formspree,
+            // Web3Forms), replace this block with a fetch() to that URL.
+            // ───────────────────────────────────────────────────────────────
+            const data = Object.fromEntries(new FormData(form).entries());
+            const subject = `New enquiry from ${data.name || 'website visitor'}`
+                + (data.service ? ` — ${data.service}` : '');
+            const lines = [
+                `Name: ${data.name || ''}`,
+                `Email: ${data.email || ''}`,
+                `Phone: ${data.phone || ''}`,
+                `Company: ${data.company || ''}`,
+                `Service: ${data.service || ''}`,
+                `Budget: ${data.budget || ''}`,
+                `Newsletter: ${data.newsletter ? 'Yes' : 'No'}`,
+                '',
+                'Message:',
+                data.message || '',
+            ];
+            const mailto = `mailto:info@apeironhub.com`
+                + `?subject=${encodeURIComponent(subject)}`
+                + `&body=${encodeURIComponent(lines.join('\n'))}`;
 
-            showMsg('✓ Message sent! We\'ll get back to you within 24 hours.', 'success');
+            // Trigger the mail client. Some browsers block direct location
+            // assignment from async handlers; use a temporary link click.
+            const tmp = document.createElement('a');
+            tmp.href = mailto;
+            tmp.rel = 'noopener';
+            document.body.appendChild(tmp);
+            tmp.click();
+            tmp.remove();
+
+            showMsg("✓ Your email app should now be open with your message ready to send. If nothing opened, please email us directly at info@apeironhub.com.", 'success');
             form.reset();
             $$('input, select, textarea', form).forEach(f => f.style.borderColor = '');
         } catch (err) {
-            showMsg('✗ Something went wrong. Please try again or contact us directly.', 'error');
+            showMsg('✗ Couldn\'t open your email app. Please email us directly at info@apeironhub.com.', 'error');
             console.error(err);
         } finally {
             if (btnText)  btnText.style.display  = 'inline';

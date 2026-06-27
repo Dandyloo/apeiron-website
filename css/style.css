@@ -1383,63 +1383,88 @@ h1, h2, h3, h4, h5, h6 {
 }
 .video-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.65; }
 
-/* Outer shell */
+/* ──────────────────────────────────────────────────────────────
+   .iphone-frame — modern large-screen smartphone mockup
+   (original CSS shape, not a copy of any trademarked device render)
+   Taller chassis, flat brushed-titanium rails, slim even bezels,
+   compact Dynamic-Island-style pill, left volume cluster + right
+   side button. Subtle low-opacity grounding shadow only.
+────────────────────────────────────────────────────────────────── */
 .iphone-frame {
     position: relative;
     width: 100%;
     max-width: 300px;
     margin-inline: auto;
-    /* 19.5:9 aspect ratio → height = width × (19.5/9) */
+    /* tall modern aspect: ~19.5:9 */
     aspect-ratio: 9 / 19.5;
-    background: linear-gradient(
-        160deg,
-        #3a3a3a 0%,
-        #2a2a2a 40%,
-        #222222 70%,
-        #2e2e2e 100%
-    );
-    border-radius: 44px;
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.08),          /* outer highlight */
-        inset 0 0 0 1px rgba(255,255,255,.04),    /* inner edge */
-        0 32px 80px rgba(13,31,60,.55),           /* deep drop shadow */
-        0 8px 24px rgba(0,0,0,.4);
-    padding: 12px;                                /* bezel thickness */
+    /* brushed titanium-style chassis (cool silver/grey) */
+    background:
+        linear-gradient(90deg,
+            #3d4046 0%,
+            #5a5e66 12%,
+            #8a8f96 40%,
+            #b6bac1 50%,
+            #8a8f96 60%,
+            #5a5e66 88%,
+            #3d4046 100%);
+    border-radius: 38px;                  /* squarer than before, still iPhone-like */
+    /* one soft, low-opacity grounding shadow only */
+    box-shadow: 0 10px 30px rgba(13, 31, 60, .14);
+    padding: 6px;                          /* slim, even bezels on all 4 sides */
 }
- 
-/* Dynamic Island — centered pill at top */
-.iphone-dynamic-island {
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 126px;
-    height: 34px;
-    background: #1a1a1a;
-    border-radius: 20px;
-    z-index: 10;
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.6),
-        inset 0 1px 0 rgba(255,255,255,.03);
-}
- 
-/* Side power button — right edge */
+
+/* Right-edge side button (existing .iphone-side-btn element) */
 .iphone-side-btn {
     position: absolute;
-    right: -3px;
-    top: 28%;
+    right: -2px;
+    top: 30%;
     width: 3px;
-    height: 60px;
-    background: linear-gradient(to bottom, #3a3a3a, #2a2a2a, #3a3a3a);
-    border-radius: 0 3px 3px 0;
-    box-shadow: 2px 0 4px rgba(0,0,0,.4);
+    height: 70px;
+    background: linear-gradient(to bottom, #6a6e76, #4a4e56, #6a6e76);
+    border-radius: 0 2px 2px 0;
 }
- 
+
+/* Left-edge cluster: action button + volume up + volume down.
+   Added as pseudo-elements so existing HTML doesn't need to change. */
+.iphone-frame::before,
+.iphone-frame::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    width: 3px;
+    background: linear-gradient(to bottom, #6a6e76, #4a4e56, #6a6e76);
+    border-radius: 2px 0 0 2px;
+    pointer-events: none;
+}
+/* small action / silent toggle near top */
+.iphone-frame::before {
+    top: 18%;
+    height: 28px;
+}
+/* longer volume rocker below it */
+.iphone-frame::after {
+    top: 27%;
+    height: 110px;
+}
+
+/* Compact Dynamic Island — narrower pill, closer to the top */
+.iphone-dynamic-island {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 26px;
+    background: #0b0b0c;
+    border-radius: 18px;
+    z-index: 10;
+}
+
 /* Screen area — where video lives */
 .iphone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 36px;
+    border-radius: 34px;
     overflow: hidden;
     background: #000;
     position: relative;
@@ -2490,125 +2515,18 @@ h1, h2, h3, h4, h5, h6 {
 .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
 .filter-btn.is-active { background: var(--navy); border-color: var(--navy); color: var(--white); }
 
-/* ── 3-Column Grid Section ──────────────── */
+/* ── Portfolio grid section wrapper (used by .port-masonry below) ── */
 .port-grid-section {
     background: var(--white);
     padding-block: clamp(3rem, 6vw, 5rem);
 }
-.port-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    overflow: visible;
-}
 
-/* ── Portfolio Card ─────────────────────── */
-.port-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-    text-decoration: none;
-    color: inherit;
-    transition: background .25s var(--ease), box-shadow .3s var(--ease);
-    position: relative;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-.port-card:hover {
-    background: var(--cream);
-    box-shadow: var(--shadow-md);
-}
-.port-card.is-hidden { display: none; }
-
-/* coming soon cards aren't clickable */
-.port-card[href="#"] {
-    cursor: default;
-    pointer-events: none;
-    opacity: .72;
-}
-.port-card[href="#"] .port-card-cat::after {
-    content: ' · Coming Soon';
-    opacity: .6;
-}
-
-.port-card-img-wrap {
-    position: relative;
-    overflow: hidden;
-}
-.port-card-img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    transition: transform .7s var(--ease);
-}
-.port-card:hover .port-card-img { transform: scale(1.06); }
-
-/* Hover overlay */
-.port-card-hover {
-    position: absolute;
-    inset: 0;
-    background: rgba(13,31,60,.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity .35s var(--ease);
-}
-.port-card:hover .port-card-hover { opacity: 1; }
-.port-card-hover span {
-    font-size: .82rem; font-weight: 700;
-    letter-spacing: .1em; text-transform: uppercase;
-    color: var(--white);
-    display: flex; align-items: center; gap: .6rem;
-    border: 1.5px solid rgba(255,255,255,.6);
-    padding: .65rem 1.4rem;
-    border-radius: 50px;
-    transition: border-color .25s, gap .25s;
-}
-.port-card:hover .port-card-hover span { border-color: var(--gold); gap: .9rem; }
-
-/* Card info bar */
-.port-card-info {
-    padding: 1.25rem 1.5rem 1.5rem;
-    border-top: 1px solid var(--cream-mid);
-    transition: border-color .25s;
-    background: var(--white);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-.port-card:hover .port-card-info { border-top-color: var(--gold); }
-.port-card-meta {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    margin-bottom: .6rem;
-}
-.port-card-num {
-    font-family: var(--font-display);
-    font-size: 1.3rem; font-weight: 300;
-    color: var(--cream-mid);
-    line-height: 1;
-    transition: color .25s;
-}
-.port-card:hover .port-card-num { color: var(--gold); }
-.port-card-cat {
-    font-size: .68rem; font-weight: 700;
-    letter-spacing: .14em; text-transform: uppercase;
-    color: var(--gold);
-}
-.port-card-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    font-weight: 600; color: var(--navy);
-    line-height: 1.2;
-}
+/* NOTE: the legacy 3-column .port-grid / .port-card system was removed
+   here — it was no longer referenced by any HTML. The active portfolio
+   grid is .port-masonry / .port-item, defined further down in this file.
+   The .port-clients / .brand-text-item / portfolio empty-state and
+   responsive overrides previously bundled with this block are kept,
+   below: */
 
 /* ── Clients section ────────────────────── */
 .port-clients {
@@ -2648,22 +2566,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-text-item:hover { opacity: 1; color: var(--gold); }
 .brand-text-item:hover::after { width: 70%; }
 
-/* ── Empty state ────────────────────────── */
-.portfolio-empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 5rem 2rem;
-    display: none;
-    background: var(--white);
-}
-.portfolio-empty.is-visible { display: block; }
-.portfolio-empty i { font-size: 2.5rem; color: var(--cream-mid); margin-bottom: 1rem; display: block; }
-.portfolio-empty p { font-size: 1rem; color: var(--text-muted); }
-
-/* ── Responsive grid ────────────────────── */
-@media (max-width: 1024px) {
-    .port-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-}
+/* ── Responsive overrides for the portfolio page ──────────── */
 @media (max-width: 768px) {
     .port-hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); }
     /* FIX: filter bar scrolls horizontally on mobile instead of wrapping awkwardly */
@@ -3587,7 +3490,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile: 1 column */
 @media (max-width: 768px) {
     .proj-gallery-grid {
-        grid-template-columns: repeat (2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: .75rem;
     }
 }
