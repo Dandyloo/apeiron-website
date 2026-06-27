@@ -45,11 +45,12 @@ function initNavbar() {
         });
     }
 
-    // Mark active link
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    // Mark active link — works for both file:// and http(s)://
+    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+    const currentHash = window.location.hash;
     $$('.nav-link').forEach(link => {
-        const href = link.getAttribute('href').split('/').pop();
-        link.classList.toggle('is-active', href === currentPath);
+        const linkFile = link.getAttribute('href').split('/').pop().split('#')[0] || 'index.html';
+        link.classList.toggle('is-active', linkFile === currentFile);
     });
 }
 
@@ -200,32 +201,10 @@ function initTeamPanel() {
 function initVideos() {
     const videos = $$('.video-wrapper video');
     videos.forEach(video => {
-        // Support both old .video-play-overlay and new .iphone-play-btn
-        const overlay = video.closest('.video-wrapper')?.querySelector('.video-play-overlay, .iphone-play-btn');
-        if (!overlay) return;
- 
         video.addEventListener('play', () => {
-            // New iphone-play-btn uses CSS class; old overlay used display
-            if (overlay.classList.contains('iphone-play-btn')) {
-                overlay.classList.add('is-playing');
-            } else {
-                overlay.style.display = 'none';
-            }
-            // Pause siblings
+            // Pause siblings when one video plays
             videos.forEach(v => { if (v !== video && !v.paused) v.pause(); });
         });
- 
-        ['pause', 'ended'].forEach(evt => {
-            video.addEventListener(evt, () => {
-                if (overlay.classList.contains('iphone-play-btn')) {
-                    overlay.classList.remove('is-playing');
-                } else {
-                    overlay.style.display = 'flex';
-                }
-            });
-        });
- 
-        overlay.addEventListener('click', () => video.play());
     });
 }
 
@@ -330,7 +309,18 @@ function initContactForm() {
             tmp.click();
             tmp.remove();
 
-            showMsg("✓ Your email app should now be open with your message ready to send. If nothing opened, please email us directly at info@apeironhub.com.", 'success');
+            showMsg("✓ Done! If your email app didn't open automatically, click the link below to send manually — or email us directly at info@apeironhub.com.", 'success');
+
+            // Render a visible fallback link in case mailto was blocked
+            const existingLink = document.getElementById('mailto-fallback');
+            if (existingLink) existingLink.remove();
+            const fallback = document.createElement('a');
+            fallback.id   = 'mailto-fallback';
+            fallback.href = mailto;
+            fallback.textContent = '📧 Open in email app';
+            fallback.style.cssText = 'display:block;margin-top:.75rem;font-weight:600;color:var(--gold);text-decoration:underline;';
+            msgEl && msgEl.after(fallback);
+
             form.reset();
             $$('input, select, textarea', form).forEach(f => f.style.borderColor = '');
         } catch (err) {
@@ -551,4 +541,131 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initServiceDrawer();
     initPortfolioFilter();
+    initLightbox();
 });
+
+/* ─────────────────────────────────────────
+   LIGHTBOX — project gallery slideshow
+───────────────────────────────────────── */
+function initLightbox() {
+    const items = $$('.proj-gallery-item[data-lightbox]');
+    if (!items.length) return;
+
+    // Build the overlay DOM once
+    const overlay = document.createElement('div');
+    overlay.className = 'lb-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Image viewer');
+    overlay.innerHTML = `
+        <div class="lb-inner">
+            <button class="lb-close" aria-label="Close"><i class="fas fa-times"></i></button>
+            <div class="lb-img-wrap">
+                <button class="lb-arrow lb-arrow--prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <img class="lb-img" src="" alt="" />
+                <button class="lb-arrow lb-arrow--next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="lb-caption"></p>
+            <p class="lb-counter"></p>
+            <div class="lb-dots"></div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const lbImg     = overlay.querySelector('.lb-img');
+    const lbCaption = overlay.querySelector('.lb-caption');
+    const lbCounter = overlay.querySelector('.lb-counter');
+    const lbDots    = overlay.querySelector('.lb-dots');
+    const prevBtn   = overlay.querySelector('.lb-arrow--prev');
+    const nextBtn   = overlay.querySelector('.lb-arrow--next');
+    const closeBtn  = overlay.querySelector('.lb-close');
+
+    // Group items by their data-lightbox value
+    const groups = {};
+    items.forEach((el, i) => {
+        const group = el.dataset.lightbox;
+        if (!groups[group]) groups[group] = [];
+        groups[group].push({
+            src:     el.dataset.src || el.querySelector('img')?.src,
+            caption: el.dataset.caption || el.querySelector('img')?.alt || '',
+            el,
+        });
+        // Store index within group on the element
+        el._lbGroupItems = null; // will assign after
+    });
+    // Assign group arrays back to elements for quick lookup
+    Object.values(groups).forEach(arr => arr.forEach(item => { item.el._lbGroupItems = arr; }));
+
+    let current = 0;
+    let groupItems = [];
+
+    function openAt(arr, idx) {
+        groupItems = arr;
+        current    = idx;
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        render();
+    }
+
+    function close() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    function render() {
+        const item = groupItems[current];
+        lbImg.classList.add('lb-transitioning');
+        setTimeout(() => {
+            lbImg.src = item.src;
+            lbImg.alt = item.caption;
+            lbCaption.textContent = item.caption;
+            lbCounter.textContent = `${current + 1} / ${groupItems.length}`;
+            lbImg.classList.remove('lb-transitioning');
+        }, 200);
+
+        // Dots
+        lbDots.innerHTML = groupItems.map((_, i) =>
+            `<button class="lb-dot${i === current ? ' is-active' : ''}" aria-label="Go to image ${i + 1}"></button>`
+        ).join('');
+        lbDots.querySelectorAll('.lb-dot').forEach((dot, i) => {
+            dot.addEventListener('click', () => { current = i; render(); });
+        });
+
+        // Hide arrows when only one image
+        prevBtn.style.visibility = groupItems.length > 1 ? 'visible' : 'hidden';
+        nextBtn.style.visibility = groupItems.length > 1 ? 'visible' : 'hidden';
+    }
+
+    function prev() { current = (current - 1 + groupItems.length) % groupItems.length; render(); }
+    function next() { current = (current + 1) % groupItems.length; render(); }
+
+    // Bind item clicks
+    items.forEach((el, _) => {
+        el.addEventListener('click', () => {
+            const arr = el._lbGroupItems;
+            const idx = arr.indexOf(arr.find(x => x.el === el));
+            openAt(arr, idx);
+        });
+    });
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    closeBtn.addEventListener('click', close);
+    // Click outside inner = close
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    // Keyboard nav
+    document.addEventListener('keydown', e => {
+        if (!overlay.classList.contains('is-open')) return;
+        if (e.key === 'Escape')     close();
+        if (e.key === 'ArrowLeft')  prev();
+        if (e.key === 'ArrowRight') next();
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    overlay.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+    });
+}
