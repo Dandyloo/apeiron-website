@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'Rotund Bold';
-    src: url('../fonts/Rotund-Bold.ttf') format('opentype');
+    src: url('../fonts/Rotund-Bold.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'MTN Sans';
-    src: url('../fonts/mtnbrightersans-regular.ttf') format('opentype');
+    src: url('../fonts/mtnbrightersans-regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
