@@ -275,56 +275,28 @@ function initContactForm() {
 
         try {
             // ───────────────────────────────────────────────────────────────
-            // mailto: fallback submission
-            // No backend required — opens the user's email client with a
-            // pre-filled message addressed to info@apeironhub.com.
-            // To swap in a real serverless endpoint later (e.g. Formspree,
-            // Web3Forms), replace this block with a fetch() to that URL.
+            // Web3Forms submission — sends the form data directly to
+            // Apeiron's inbox via web3forms.com, no backend required.
+            // Requires a valid access_key (see hidden input in contact.html).
             // ───────────────────────────────────────────────────────────────
-            const data = Object.fromEntries(new FormData(form).entries());
-            const subject = `New enquiry from ${data.name || 'website visitor'}`
-                + (data.service ? ` — ${data.service}` : '');
-            const lines = [
-                `Name: ${data.name || ''}`,
-                `Email: ${data.email || ''}`,
-                `Phone: ${data.phone || ''}`,
-                `Company: ${data.company || ''}`,
-                `Service: ${data.service || ''}`,
-                `Budget: ${data.budget || ''}`,
-                `Newsletter: ${data.newsletter ? 'Yes' : 'No'}`,
-                '',
-                'Message:',
-                data.message || '',
-            ];
-            const mailto = `mailto:info@apeironhub.com`
-                + `?subject=${encodeURIComponent(subject)}`
-                + `&body=${encodeURIComponent(lines.join('\n'))}`;
+            const formData = new FormData(form);
 
-            // Trigger the mail client. Some browsers block direct location
-            // assignment from async handlers; use a temporary link click.
-            const tmp = document.createElement('a');
-            tmp.href = mailto;
-            tmp.rel = 'noopener';
-            document.body.appendChild(tmp);
-            tmp.click();
-            tmp.remove();
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: formData,
+            });
+            const result = await response.json();
 
-            showMsg("✓ Done! If your email app didn't open automatically, click the link below to send manually — or email us directly at info@apeironhub.com.", 'success');
-
-            // Render a visible fallback link in case mailto was blocked
-            const existingLink = document.getElementById('mailto-fallback');
-            if (existingLink) existingLink.remove();
-            const fallback = document.createElement('a');
-            fallback.id   = 'mailto-fallback';
-            fallback.href = mailto;
-            fallback.textContent = '📧 Open in email app';
-            fallback.style.cssText = 'display:block;margin-top:.75rem;font-weight:600;color:var(--gold);text-decoration:underline;';
-            msgEl && msgEl.after(fallback);
-
-            form.reset();
-            $$('input, select, textarea', form).forEach(f => f.style.borderColor = '');
+            if (result.success) {
+                showMsg('✓ Thanks — your message has been sent. We\'ll get back to you within 24 hours.', 'success');
+                form.reset();
+                $$('input, select, textarea', form).forEach(f => f.style.borderColor = '');
+            } else {
+                throw new Error(result.message || 'Submission failed');
+            }
         } catch (err) {
-            showMsg('✗ Couldn\'t open your email app. Please email us directly at info@apeironhub.com.', 'error');
+            showMsg('✗ Something went wrong sending your message. Please email us directly at info@apeironhub.com.', 'error');
             console.error(err);
         } finally {
             if (btnText)  btnText.style.display  = 'inline';
