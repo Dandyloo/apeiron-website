@@ -65,144 +65,145 @@
      ============================================================ -->
 <section class="port-hero port-hero--dark">
 
-    <!-- SVG art doodles — scattered abstract marks -->
-    <div class="port-hero-doodles" aria-hidden="true">
-        <svg class="doodle doodle--1" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="60" cy="60" r="55" stroke="currentColor" stroke-width="1.5" stroke-dasharray="8 6"/>
-            <circle cx="60" cy="60" r="30" stroke="currentColor" stroke-width="1"/>
-        </svg>
-        <svg class="doodle doodle--2" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="40" x2="80" y2="40" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="40" y1="0" x2="40" y2="80" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="10" y1="10" x2="70" y2="70" stroke="currentColor" stroke-width="1"/>
-            <line x1="70" y1="10" x2="10" y2="70" stroke="currentColor" stroke-width="1"/>
-        </svg>
-        <svg class="doodle doodle--3" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 5 L55 52 L5 52 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        <svg class="doodle doodle--4" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="25" cy="25" r="4" fill="currentColor"/>
-            <circle cx="8"  cy="8"  r="2.5" fill="currentColor"/>
-            <circle cx="42" cy="8"  r="2.5" fill="currentColor"/>
-            <circle cx="8"  cy="42" r="2.5" fill="currentColor"/>
-            <circle cx="42" cy="42" r="2.5" fill="currentColor"/>
-        </svg>
-        <svg class="doodle doodle--5" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 20 Q25 0 50 20 Q75 40 100 20" stroke="currentColor" stroke-width="1.5" fill="none"/>
-            <path d="M0 28 Q25 8 50 28 Q75 48 100 28" stroke="currentColor" stroke-width="1" fill="none"/>
-        </svg>
-        <svg class="doodle doodle--6" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="30" y1="0"  x2="30" y2="60" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="0"  y1="30" x2="60" y2="30" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="8"  y1="8"  x2="52" y2="52" stroke="currentColor" stroke-width="1"/>
-            <line x1="52" y1="8"  x2="8"  y2="52" stroke="currentColor" stroke-width="1"/>
-            <circle cx="30" cy="30" r="12" stroke="currentColor" stroke-width="1"/>
-        </svg>
-        <svg class="doodle doodle--7" viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
-        </svg>
-        <svg class="doodle doodle--8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="5" width="30" height="30" stroke="currentColor" stroke-width="1.5" rx="4"/>
-            <rect x="13" y="13" width="14" height="14" stroke="currentColor" stroke-width="1" rx="2"/>
-        </svg>
-    </div>
-
-    <!-- Radial gold glow behind headline -->
-    <div class="port-hero-glow" aria-hidden="true"></div>
-
     <div class="port-hero-inner">
         <div class="port-hero-meta">
-            <span class="port-hero-label">Selected Work</span>
-            <span class="port-hero-count">2 Projects</span>
+            <span class="port-hero-label"><span class="port-hero-dot" aria-hidden="true"></span>Selected Work · 2026</span>
         </div>
-        <h1 class="port-hero-title">Projects<br /><em>We're Proud Of</em></h1>
-        <p class="port-hero-sub">A curated showcase of campaigns, brands, and digital experiences built for our clients.</p>
+        <h1 class="port-hero-title">Work worth<br /><em>talking about.</em></h1>
+        <p class="port-hero-sub">A curated look at the campaigns, brands and digital experiences we've built — every project chosen because it moved the needle for a real client.</p>
+
+        <div class="port-hero-stats">
+            <div class="port-hero-stat">
+                <span class="port-hero-stat-num">02</span>
+                <span class="port-hero-stat-label">Live Case Studies</span>
+            </div>
+            <div class="port-hero-stat">
+                <span class="port-hero-stat-num">05</span>
+                <span class="port-hero-stat-label">Service Disciplines</span>
+            </div>
+            <div class="port-hero-stat">
+                <span class="port-hero-stat-num">GH</span>
+                <span class="port-hero-stat-label">Based, Global Reach</span>
+            </div>
+        </div>
     </div>
     <div class="port-hero-rule"></div>
 </section>
 
 
-<!-- filter bar — UNCHANGED markup -->
+<!-- filter heading — new -->
+<section class="port-filter-heading-section">
+    <div class="container">
+        <h2 class="port-filter-title">Browse the work</h2>
+        <p class="port-filter-sub">Filter by discipline to see relevant projects</p>
+    </div>
+</section>
+
+<!-- filter bar — sticky pill row, markup/JS hooks unchanged -->
 <div class="port-filter-wrap">
     <div class="container">
         <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
             <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All Work</button>
             <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+            <button class="filter-btn" data-filter="social-media" role="tab" aria-selected="false">Social Media</button>
             <button class="filter-btn" data-filter="web-design" role="tab" aria-selected="false">Web Design</button>
+            <button class="filter-btn" data-filter="content" role="tab" aria-selected="false">Content</button>
+            <button class="filter-btn" data-filter="digital-pr" role="tab" aria-selected="false">Digital PR</button>
         </div>
     </div>
 </div>
 
 
 <!-- ============================================================
-     MASONRY GRID — CSS columns, natural image heights
+     CASE STUDY FEATURE BLOCKS — full-width alternating image/text
 
      ─────────────────────────────────────────────────────────────
      HOW TO ADD A NEW PROJECT CARD
      ─────────────────────────────────────────────────────────────
-     Copy ONE of the two block templates below and paste it into
-     the grid. Edit only: data-category, href, image src/alt, the
-     category label, and the title. Don't change the structure —
-     it keeps every card visually consistent.
+     Copy ONE of the two block templates below and paste it inside
+     <section class="cs-section" id="portfolioGrid">, right before
+     the #portfolioEmpty paragraph. Edit only: data-category, href,
+     image src/alt, tag label, index number, title, and description.
 
      1) LIVE PROJECT CARD (links to a project-*.html case study)
-        <a href="project-<slug>.html" class="port-item scroll-reveal" data-category="<category>">
-            <img src="<cloudinary-url>" alt="<project> — <short description>" />
-            <div class="port-item-overlay">
-                <span class="port-item-cat"><Category Label></span>
-                <span class="port-item-title"><Project Title></span>
-                <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
+        <a href="project-<slug>.html" class="port-item cs-block scroll-reveal" data-category="<category>">
+            <div class="container cs-row">
+                <div class="cs-media">
+                    <img src="<cloudinary-url>" alt="<project> — <short description>" />
+                </div>
+                <div class="cs-content">
+                    <span class="cs-tag"><Category Label></span>
+                    <span class="cs-index">03</span>
+                    <h3 class="cs-title"><Project Title></h3>
+                    <p class="cs-desc"><One or two sentence project summary.></p>
+                    <span class="cs-link">View Case Study <i class="fas fa-arrow-right"></i></span>
+                </div>
             </div>
         </a>
+        Add class="cs-block--reverse" to flip image/text sides on alternate entries.
+        IMPORTANT: keep the DOM order above exactly as-is (.cs-media first, then
+        .cs-content) — the class does the flip via CSS. Don't manually swap the
+        two divs' order in the HTML; that cancels the flip out instead of doing it.
 
      2) COMING-SOON CARD (no link, visually muted)
-        <div class="port-item port-item--soon scroll-reveal" data-category="<category>">
-            <img src="<cloudinary-url>" alt="<project> — coming soon" />
-            <div class="port-item-overlay">
-                <span class="port-item-cat"><Category Label> · Coming Soon</span>
-                <span class="port-item-title"><Project Title></span>
+        <div class="port-item cs-block cs-block--soon scroll-reveal" data-category="<category>">
+            <div class="container cs-row">
+                <div class="cs-media">
+                    <img src="<cloudinary-url>" alt="<project> — coming soon" />
+                </div>
+                <div class="cs-content">
+                    <span class="cs-tag"><Category Label> · Coming Soon</span>
+                    <span class="cs-index">04</span>
+                    <h3 class="cs-title"><Project Title></h3>
+                    <p class="cs-desc"><One or two sentence project summary.></p>
+                </div>
             </div>
         </div>
 
      Valid data-category values (must match a filter button):
        branding | social-media | web-design | content | digital-pr
      ============================================================ -->
-<section class="port-grid-section">
-    <div class="container">
+<section class="cs-section" id="portfolioGrid">
 
-        <div class="port-masonry" id="portfolioGrid">
-
-            <!-- 01: Nibbles N Bites — LIVE -->
-            <a href="project-nibbles.html" class="port-item scroll-reveal" data-category="branding">
+    <!-- 01: Nibbles N Bites — LIVE -->
+    <a href="project-nibbles.html" class="port-item cs-block scroll-reveal" data-category="branding">
+        <div class="container cs-row">
+            <div class="cs-media">
                 <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1775774357/00_sblepk.jpg"
                      alt="Nibbles N Bites — brand identity and packaging design" />
-                <div class="port-item-overlay">
-                    <span class="port-item-cat">Branding</span>
-                    <span class="port-item-title">Nibbles N Bites</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-
-            <!-- 02: Royal Antique Home — LIVE -->
-            <a href="project-royal-antique.html" class="port-item scroll-reveal" style="--delay:0.05s" data-category="web-design">
-                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_600/v1776245591/hero_chhh4r.png"
-                     alt="Royal Antique Home — premium furniture website design" />
-                <div class="port-item-overlay">
-                    <span class="port-item-cat">Web Design</span>
-                    <span class="port-item-title">Royal Antique Home</span>
-                    <span class="port-item-arrow">View <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-
+            </div>
+            <div class="cs-content">
+                <span class="cs-tag">Branding</span>
+                <span class="cs-index">01</span>
+                <h3 class="cs-title">Nibbles N Bites</h3>
+                <p class="cs-desc">A full brand identity and packaging system for a Ghanaian snack brand — logo, color language, and shelf-ready packaging designed to stand out and feel homegrown.</p>
+                <span class="cs-link">View Case Study <i class="fas fa-arrow-right"></i></span>
+            </div>
         </div>
+    </a>
 
+    <!-- 02: Royal Antique Home — LIVE -->
+    <a href="project-royal-antique.html" class="port-item cs-block cs-block--reverse scroll-reveal" style="--delay:0.05s" data-category="web-design">
+        <div class="container cs-row">
+            <div class="cs-media">
+                <img src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1777369121/5807522145226133037_121_e0jiu1.jpg"
+                     alt="Royal Antique Home — premium furniture website design" />
+            </div>
+            <div class="cs-content">
+                <span class="cs-tag cs-tag--navy">Web Design</span>
+                <span class="cs-index">02</span>
+                <h3 class="cs-title">Royal Antique Home</h3>
+                <p class="cs-desc">A premium furniture e-commerce experience built to match the craftsmanship of the product — refined typography, rich imagery, and a browsing flow that feels as considered as the pieces themselves.</p>
+                <span class="cs-link">View Case Study <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </a>
 
-        <!-- JS-injected empty state (replaces old .portfolio-empty div) -->
-        <p class="port-masonry-empty" id="portfolioEmpty" style="display:none;">
-            <i class="fas fa-folder-open"></i> No projects in this category yet — check back soon.
-        </p>
+    <!-- JS-injected empty state (unchanged id/hooks) -->
+    <p class="port-masonry-empty" id="portfolioEmpty" style="display:none;">
+        <i class="fas fa-folder-open"></i> No projects in this category yet — check back soon.
+    </p>
 
-    </div>
 </section>
 
 

@@ -479,40 +479,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-lg);
 }
 
-.hero-badge {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    background: rgba(245,240,232,.92);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: 50px;
-    padding: .6rem 1.2rem;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--navy);
-    box-shadow: var(--shadow-sm);
-    animation: float 5s ease-in-out infinite;
-}
-.hero-badge i { color: var(--gold); }
-.hero-badge--tl {
-    top: 2rem;
-    left: -1.5rem;
-    animation-delay: 0s;
-    filter: drop-shadow(0 4px 16px rgba(13,31,60,.18));
-}
-.hero-badge--br {
-    bottom: 3rem;
-    right: -1.5rem;
-    animation-delay: .8s;
-    filter: drop-shadow(0 4px 16px rgba(13,31,60,.18));
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-10px); }
-}
+/* .hero-badge (floating Analytics/Growth pills) removed per request */
 
 /* Scroll hint */
 .hero-scroll-hint {
@@ -782,7 +749,9 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     cursor: pointer;
     box-shadow: var(--shadow-md);
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1; /* was 4/3 — both real images (Nibbles, Royal
+        Antique) are actually square, so 4/3 was cropping them. 1/1
+        matches the real files and keeps both tiles equal height. */
 }
 
 .portfolio-tile-img {
@@ -2308,8 +2277,6 @@ h1, h2, h3, h4, h5, h6 {
     .hero-right { order: 1; }
     .hero-body { margin-inline: auto; }
     .hero-actions, .hero-trust { justify-content: center; }
-    .hero-badge--tl { top: .5rem; left: .5rem; }
-    .hero-badge--br { bottom: .5rem; right: .5rem; }
     .hero-img { min-height: 260px; }
     .hero-scroll-hint { display: none; }
 
@@ -2408,12 +2375,17 @@ h1, h2, h3, h4, h5, h6 {
 .port-hero-meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 .port-hero-label {
+    display: flex; align-items: center;
     font-size: .75rem; font-weight: 600;
     letter-spacing: .2em; text-transform: uppercase; color: var(--gold);
+}
+.port-hero-dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); margin-right: .6rem;
 }
 .port-hero-count {
     font-size: .75rem; font-weight: 600;
@@ -2421,15 +2393,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 .port-hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 600; color: var(--navy);
-    line-height: 1.0; letter-spacing: -.02em;
+    line-height: 1.02; letter-spacing: -.02em;
+    text-align: center;
     margin-bottom: clamp(1rem, 2vw, 1.5rem);
 }
 .port-hero-title em { font-style: italic; color: var(--gold); }
 .port-hero-sub {
     font-size: clamp(1rem, 1.8vw, 1.15rem);
-    color: var(--text-muted); max-width: 520px; line-height: 1.7;
+    color: var(--text-muted); max-width: 620px; line-height: 1.7;
+    text-align: center; margin-inline: auto;
+}
+.port-hero-stats {
+    display: flex; justify-content: center;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+.port-hero-stat {
+    display: flex; flex-direction: column; align-items: center; gap: .25rem;
+    width: 130px; /* consistent column width so text wraps predictably and centers */
+}
+.port-hero-stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--gold-light);
+    text-align: center;
+}
+.port-hero-stat-label {
+    font-size: .7rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    text-align: center; /* was left-aligning on wrap ("Based, Global" / "Reach") */
+    width: 100%;
 }
 .port-hero-rule {
     max-width: var(--max-width);
@@ -2437,6 +2433,25 @@ h1, h2, h3, h4, h5, h6 {
     padding-inline: clamp(1.25rem, 5vw, 3rem);
     height: 1px;
     background: linear-gradient(to right, var(--gold), transparent);
+}
+
+/* ── Filter heading ─────────────────────── */
+.port-filter-heading-section {
+    background: var(--cream);
+    text-align: center;
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+.port-filter-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--navy);
+    margin-bottom: .5rem;
+}
+.port-filter-sub {
+    font-size: .95rem;
+    color: var(--text-muted);
+    opacity: .7;
 }
 
 /* ── Filter Bar ─────────────────────────── */
@@ -2455,16 +2470,17 @@ h1, h2, h3, h4, h5, h6 {
     flex-wrap: wrap;
     gap: .6rem;
     align-items: center;
+    justify-content: center;
     margin-bottom: 0;
 }
 .filter-btn {
     font-family: var(--font-body);
     font-size: .78rem; font-weight: 600;
     letter-spacing: .08em; text-transform: uppercase;
-    padding: .45rem 1.2rem;
+    padding: .5rem 1.3rem;
     border-radius: 50px;
     border: 1.5px solid var(--cream-mid);
-    background: transparent;
+    background: var(--cream-mid);
     color: var(--text-muted);
     cursor: pointer;
     transition: var(--transition);
@@ -2474,10 +2490,90 @@ h1, h2, h3, h4, h5, h6 {
 .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
 .filter-btn.is-active { background: var(--navy); border-color: var(--navy); color: var(--white); }
 
-/* ── Portfolio grid section wrapper (used by .port-masonry below) ── */
-.port-grid-section {
+/* ── Case study feature blocks (replaces old masonry grid) ── */
+.cs-section {
     background: var(--white);
+}
+.cs-block {
+    display: block;
     padding-block: clamp(3rem, 6vw, 5rem);
+    text-decoration: none;
+    cursor: pointer;
+}
+/* nth-child (not nth-of-type) so the cream/white rhythm stays correct
+   even when live <a> cards and coming-soon <div> cards are mixed */
+.cs-block:nth-child(odd) { background: var(--cream); }
+.cs-block--soon { cursor: default; opacity: .8; }
+.cs-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+}
+/* .cs-block--reverse flips visually via row-reverse. Cards should keep
+   DOM order [.cs-media, .cs-content] always (image first, text second)
+   — matching the template in the HTML comment above the grid — and let
+   this class handle the flip. Reordering the DOM instead of using this
+   class is what caused the "both cards show image on the left" bug. */
+.cs-block--reverse .cs-row { flex-direction: row-reverse; }
+.cs-media {
+    flex: 1 1 50%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    /* no fixed aspect-ratio — the box takes the shape of whatever
+       image is dropped in, so nothing gets cropped, on any project */
+}
+.cs-media img {
+    width: 100%; height: auto;
+    display: block;
+    transition: transform .5s var(--ease);
+}
+.cs-block:hover .cs-media img { transform: scale(1.045); }
+.cs-content {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .9rem;
+}
+.cs-tag {
+    display: inline-block;
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold-light);
+    padding: .4rem .9rem;
+    border-radius: 50px;
+}
+.cs-tag--navy { background: var(--navy); color: var(--gold-light); }
+.cs-index {
+    font-size: .85rem; font-weight: 700;
+    letter-spacing: .08em; color: var(--gold);
+}
+.cs-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    color: var(--navy);
+    letter-spacing: -.01em;
+}
+.cs-desc {
+    font-size: 1rem; line-height: 1.75;
+    color: var(--text-muted); opacity: .85;
+    max-width: 460px;
+}
+.cs-link {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .95rem; font-weight: 700; color: var(--navy);
+    margin-top: .4rem;
+    transition: gap .25s var(--ease), color .25s var(--ease);
+}
+.cs-link i { font-size: .78rem; transition: transform .25s var(--ease); }
+.cs-block:hover .cs-link { color: var(--gold); gap: .75rem; }
+.cs-block:hover .cs-link i { transform: translateX(3px); }
+
+@media (max-width: 860px) {
+    .cs-row { flex-direction: column !important; }
+    .cs-content { align-items: flex-start; }
 }
 
 /* NOTE: the legacy 3-column .port-grid / .port-card system was removed
@@ -2533,6 +2629,9 @@ h1, h2, h3, h4, h5, h6 {
     .filter-bar {
         overflow-x: auto;
         flex-wrap: nowrap;
+        justify-content: flex-start; /* FIX: was inheriting center, which shoved
+           the row's start off-screen left — first pill loaded already scrolled
+           past, showing "...NG" instead of "All Work" */
         padding-bottom: .25rem;
         -webkit-overflow-scrolling: touch; 
         scrollbar-width: none; 
@@ -2630,6 +2729,55 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: contain;
     object-position: center;
     display: block;
+}
+
+/* ── Creative typographic banner (used instead of .proj-hero-img when
+   there's no dedicated banner photo) — built from the project's own
+   brand colors + real tagline rather than a generic placeholder look.
+   Reusable for any future project page in the same situation: just
+   swap the two --proj-banner-* custom properties and the copy. ── */
+.proj-creative-banner {
+    --proj-banner-deep: #1d1207;
+    --proj-banner-base: #2b1c12;
+    width: 100%;
+    background: linear-gradient(135deg, var(--proj-banner-deep) 0%, var(--proj-banner-base) 100%);
+    padding: clamp(4.5rem, 9vw, 7rem) 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+.proj-banner-mark {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    transform: rotate(45deg);
+}
+.proj-banner-label {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+}
+.proj-banner-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    color: #f2ece2;
+}
+.proj-banner-rule {
+    width: 70px;
+    height: 2px;
+    background: var(--gold);
+}
+.proj-banner-sub {
+    max-width: 520px;
+    font-size: clamp(.95rem, 1.5vw, 1.05rem);
+    line-height: 1.6;
+    color: #d1c3b3;
 }
 
 /* Body copy sections  */
@@ -3079,13 +3227,7 @@ h1, h2, h3, h4, h5, h6 {
  
 /* ── Dark hero variant ──────────────────────────────────────── */
 .port-hero--dark {
-    background: linear-gradient(
-        160deg,
-        var(--navy) 0%,
-        var(--navy-light) 60%,
-        rgba(13,31,60,.96) 85%,
-        rgba(201,168,76,.08) 100%
-    );
+    background: var(--navy-mid); /* #152d50 — flat, matching Figma exactly */
     position: relative;
     overflow: hidden;
 }
@@ -3101,46 +3243,9 @@ h1, h2, h3, h4, h5, h6 {
     opacity: .5;
 }
  
-/* Radial gold glow behind headline */
-.port-hero-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 300px;
-    background: radial-gradient(ellipse, rgba(201,168,76,.07) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
- 
-/* Ensure hero inner sits above doodles/glow */
+/* Ensure hero inner sits above any future overlays */
 .port-hero--dark .port-hero-inner { position: relative; z-index: 1; }
 .port-hero--dark .port-hero-rule  { position: relative; z-index: 1; }
- 
-/* ── SVG doodles ────────────────────────────────────────────── */
-.port-hero-doodles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    color: rgba(255,255,255,1); /* individual doodles set opacity via class */
-}
- 
-.doodle {
-    position: absolute;
-    opacity: .13;
-}
- 
-/* Place each doodle at a distinct position */
-.doodle--1 { width: 140px; top: 8%;  right: 6%;  opacity: .12; }
-.doodle--2 { width: 80px;  top: 18%; left: 3%;   opacity: .14; }
-.doodle--3 { width: 70px;  bottom: 22%; right: 18%; opacity: .15; }
-.doodle--4 { width: 56px;  top: 55%; left: 8%;   opacity: .16; }
-.doodle--5 { width: 110px; bottom: 12%; left: 22%;  opacity: .13; }
-.doodle--6 { width: 90px;  top: 10%; left: 42%;  opacity: .10; }
-.doodle--7 { width: 100px; bottom: 30%; right: 5%;  opacity: .18; }
-.doodle--8 { width: 60px;  top: 40%; right: 28%; opacity: .12; }
  
  
 /* ── Masonry grid ───────────────────────────────────────────── */
@@ -3413,15 +3518,20 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--cream);
 }
  
+/* Masonry via native CSS columns — no JS, no fixed aspect-ratio.
+   Each image renders at its own natural proportions (portrait,
+   landscape, or square) and the browser packs columns automatically.
+   Adding a 9th, 10th... image later needs zero changes here. */
 .proj-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    columns: 3;
+    column-gap: 1.75rem;
     margin-top: 0;
 }
  
 .proj-gallery-item {
-    aspect-ratio: 1 / 1;
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 1.75rem;
     overflow: hidden;
     border-radius: 10px;
     background: var(--cream-mid);
@@ -3431,9 +3541,7 @@ h1, h2, h3, h4, h5, h6 {
  
 .proj-gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    height: auto;
     display: block;
     transition: transform .7s var(--ease);
 }
@@ -3611,15 +3719,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Tablet: 2 columns */
 @media (max-width: 1024px) {
     .proj-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        columns: 2;
+        column-gap: 1.25rem;
     }
 }
  
-/* Mobile: 1 column */
+/* Mobile: 2 columns (confirmed in Figma — full-width single column
+   made cards feel unnecessarily long; 2-up reads better here while
+   still keeping packaging/logo detail legible) */
 @media (max-width: 768px) {
     .proj-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: .75rem;
+        columns: 2;
+        column-gap: .85rem;
+    }
+    .proj-gallery-item {
+        margin-bottom: .85rem;
     }
 }
  

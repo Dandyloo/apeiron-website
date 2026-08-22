@@ -62,6 +62,14 @@
 
     <!-- Fonts -->
 
+    <!-- Performance: preconnect to Cloudinary early, and preload the hero
+         image (it's the LCP element) at a compressed, correctly-sized
+         version rather than the full-resolution original — this is the
+         main fix for the slow hero load. -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="preload" as="image" fetchpriority="high"
+          href="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_900/v1769555643/hero-image_vuxaon.jpg" />
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -123,18 +131,18 @@
         <div class="hero-right reveal-right">
             <div class="hero-img-frame">
                 <img
-                        src="https://res.cloudinary.com/djmyiuu5k/image/upload/v1769555643/hero-image_vuxaon.jpg"
+                        src="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_900/v1769555643/hero-image_vuxaon.jpg"
+                        srcset="https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_500/v1769555643/hero-image_vuxaon.jpg 500w,
+                                https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_700/v1769555643/hero-image_vuxaon.jpg 700w,
+                                https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_900/v1769555643/hero-image_vuxaon.jpg 900w,
+                                https://res.cloudinary.com/djmyiuu5k/image/upload/f_auto,q_auto,w_1200/v1769555643/hero-image_vuxaon.jpg 1200w"
+                        sizes="(max-width: 900px) 100vw, 640px"
                         alt="Apeiron team at work"
                         class="hero-img"
+                        fetchpriority="high"
+                        decoding="async"
+                        width="900" height="1050"
                 />
-                <div class="hero-badge hero-badge--tl">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Analytics</span>
-                </div>
-                <div class="hero-badge hero-badge--br">
-                    <i class="fas fa-rocket"></i>
-                    <span>Growth</span>
-                </div>
             </div>
         </div>
     </div>
